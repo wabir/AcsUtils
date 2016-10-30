@@ -1,6 +1,6 @@
-# Android-Utils
+# AcsUtils
 
-[![](https://jitpack.io/v/acslmv/android-utils.svg)](https://jitpack.io/#acslmv/android-utils)
+[![](https://jitpack.io/v/acslmv/AcsUtils.svg)](https://jitpack.io/#acslmv/AcsUtils)
 
 >Utilidades
 
@@ -28,15 +28,15 @@ allprojects {
 
 ``` gradle
 dependencies {
-    compile 'com.github.acslmv:android-utils:1.0'
+    compile 'com.github.acslmv:AcsUtils:1.0'
 }
 ```
 
 
-## Usage
-- AcsButton
+## AcsButton
+- Xml
 
- ```xml
+```xml
 <acs.utils.AcsButton
     xmlns:acs="http://schemas.android.com/apk/res-auto"
     android:id="@+id/login"
@@ -52,9 +52,9 @@ dependencies {
     acs:ab_iconMarginRight="10dp"/>
 ```
  
-- ProgressBar
+- Java
 
- ```java
+```java
 ...
 button.setLoading();
 button.hideLoading();
