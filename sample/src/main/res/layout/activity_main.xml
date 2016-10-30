@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<acs.utils.AcsBox xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:acs="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/box"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <acs.utils.AcsButton
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            acs:ab_bgColor="#39579B"
+            acs:ab_bgColorFocus="#193574"
+            acs:ab_text="Iniciar con Facebook"
+            acs:ab_textBold="true"
+            acs:ab_radius="5dp"
+            acs:ab_icon="@drawable/ic_facebook"
+            acs:ab_iconSize="20dp"
+            acs:ab_iconMarginRight="10dp"/>
+
+        <Button
+            android:id="@+id/load"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cargar contenido"/>
+
+    </LinearLayout>
+
+</acs.utils.AcsBox>

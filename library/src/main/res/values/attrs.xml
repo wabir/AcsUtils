@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AcsBox">
+        <attr name="loadingSize" format="dimension"/>
+
+        <attr name="iconSize" format="dimension"/>
+
+        <attr name="titleSize" format="dimension"/>
+        <attr name="titleColor" format="color" />
+        <attr name="subtitleSize" format="dimension"/>
+        <attr name="subtitleColor" format="color" />
+
+        <attr name="emptyIcon" format="reference"/>
+        <attr name="emptyTitle" format="string"/>
+        <attr name="emptySubtitle" format="string"/>
+
+        <attr name="errorIcon" format="reference"/>
+        <attr name="errorTitle" format="string"/>
+        <attr name="errorSubtitle" format="string"/>
+
+        <attr name="buttonText" format="reference"/>
+
+        <attr name="spacing" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="AcsButton">
+        <attr name="ab_bgColor" format="color" />
+        <attr name="ab_bgColorFocus" format="color" />
+
+        <attr name="ab_text" format="string"/>
+        <attr name="ab_textSize" format="dimension"/>
+        <attr name="ab_textBold" format="boolean"/>
+        <attr name="ab_textAllCaps" format="boolean"/>
+        <attr name="ab_radius" format="dimension"/>
+        <attr name="ab_borderColor" format="color" />
+        <attr name="ab_borderWidth" format="dimension" />
+
+        <attr name="ab_loadingSize" format="dimension"/>
+
+        <attr name="ab_icon" format="reference" />
+        <attr name="ab_iconSize" format="dimension" />
+        <attr name="ab_iconMarginLeft" format="dimension" />
+        <attr name="ab_iconMarginRight" format="dimension" />
+        <attr name="ab_iconMarginTop" format="dimension" />
+        <attr name="ab_iconMarginBottom" format="dimension" />
+    </declare-styleable>
+
+</resources>
