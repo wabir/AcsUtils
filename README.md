@@ -1,4 +1,7 @@
 # Android-Utils
+
+[![](https://jitpack.io/v/acslmv/android-utils.svg)](https://jitpack.io/#acslmv/android-utils)
+
 >Android loading animations(I wrote a android edition according [SpinKit](https://github.com/tobiasahlin/SpinKit))
 
 ## Preview
