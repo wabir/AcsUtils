@@ -13,23 +13,23 @@
 
 ## Gradle Dependency
 
-  1. Add the JitPack repository to your build file
+1. Add the JitPack repository to your build file
 
-	```gradle
-        allprojects {
-            repositories {
-                ...
-                maven { url "https://jitpack.io" }
-            }
-        }
-	```
-
-  2. Add the dependency
-
- ``` gradle
-    dependencies {
-        compile 'com.github.acslmv:android-utils:1.0'
+```gradle
+allprojects {
+    repositories {
+        ...
+        maven { url "https://jitpack.io" }
     }
+}
+```
+
+2. Add the dependency
+
+``` gradle
+dependencies {
+    compile 'com.github.acslmv:android-utils:1.0'
+}
 ```
 
 
