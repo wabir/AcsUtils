@@ -2,7 +2,7 @@
 
 [![](https://jitpack.io/v/acslmv/android-utils.svg)](https://jitpack.io/#acslmv/android-utils)
 
->Android loading animations(I wrote a android edition according [SpinKit](https://github.com/tobiasahlin/SpinKit))
+>Utilidades
 
 
 ## Preview
@@ -28,41 +28,41 @@
 
  ``` gradle
 dependencies {
-    compile 'com.github.ybq:Android-SpinKit:1.1.0'
+    compile 'com.github.acslmv:android-utils:1.0'
  }
 ```
 
 
 ## Usage
-- Xml
+- AcsButton
 
  ```xml
-<com.github.ybq.android.spinkit.SpinKitView
-     xmlns:app="http://schemas.android.com/apk/res-auto"
-     android:id="@+id/spin_kit"
-     style="@style/SpinKitView.Large.Circle"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_gravity="center"
-     app:SpinKit_Color="@color/colorAccent" />         
+<acs.utils.AcsButton
+    android:id="@+id/login"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    acs:ab_bgColor="#39579B"
+    acs:ab_bgColorFocus="#193574"
+    acs:ab_text="Iniciar con Facebook"
+    acs:ab_textBold="true"
+    acs:ab_radius="5dp"
+    acs:ab_icon="@drawable/ic_facebook"
+    acs:ab_iconSize="20dp"
+    acs:ab_iconMarginRight="10dp"/>
 ```
  
 - ProgressBar
 
  ```java
-ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress);
-DoubleBounce doubleBounce = new DoubleBounce();
-progressBar.setIndeterminateDrawable(doubleBounce);
+...
+button.setLoading();
+button.hideLoading();
 ```
 
 ## Style
 > 
  ```xml
-@style/SpinKitView
-@style/SpinKitView.Circle
-@style/SpinKitView.Large
-@style/SpinKitView.Small
-@style/SpinKitView.Small.DoubleBounce   
+Good!
  ```
 
 Style | Preview
