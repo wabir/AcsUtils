@@ -28,7 +28,7 @@
 
  ``` gradle
     dependencies {
-                    compile 'com.github.acslmv:android-utils:1.0'
+        compile 'com.github.acslmv:android-utils:1.0'
     }
 ```
 
