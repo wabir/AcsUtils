@@ -38,6 +38,7 @@ dependencies {
 
  ```xml
 <acs.utils.AcsButton
+    xmlns:acs="http://schemas.android.com/apk/res-auto"
     android:id="@+id/login"
     android:layout_width="match_parent"
     android:layout_height="50dp"
