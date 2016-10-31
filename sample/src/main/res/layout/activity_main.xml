@@ -4,7 +4,8 @@
     android:id="@+id/box"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FFF">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,15 +13,68 @@
         android:padding="10dp"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <acs.utils.AcsButton
+                android:id="@+id/btn_circle"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                acs:ab_bgColor="#3FA75A"
+                acs:ab_bgColorFocus="#399651"
+                acs:ab_radius="25dp"
+                acs:ab_icon="@drawable/ic_like"
+                acs:ab_iconSize="20dp"
+                acs:ab_borderWidth="2dp"
+                acs:ab_borderColor="#399651"/>
+
+            <acs.utils.AcsButton
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                acs:ab_bgColor="#39579B"
+                acs:ab_bgColorFocus="#193574"
+                acs:ab_text="Login"
+                acs:ab_textBold="true"
+                acs:ab_radius="5dp"
+                acs:ab_icon="@drawable/ic_facebook"
+                acs:ab_iconSize="20dp"
+                acs:ab_iconMarginRight="10dp"/>
+
+        </LinearLayout>
+
         <acs.utils.AcsButton
-            android:id="@+id/login"
+            android:id="@+id/btn_ligth"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            acs:ab_bgColor="#F6F7F9"
+            acs:ab_bgColorFocus="#E9EBEE"
+            acs:ab_text="Login"
+            acs:ab_textBold="true"
+            acs:ab_textColor="#575757"
+            acs:ab_radius="5dp"
+            acs:ab_loadingColor="#39579B"
+            acs:ab_icon="@drawable/ic_facebook"
+            acs:ab_iconColor="#575757"
+            acs:ab_iconSize="20dp"
+            acs:ab_iconMarginRight="10dp"
+            acs:ab_borderWidth="1dp"
+            acs:ab_borderColor="#CED0D4"/>
+
+        <acs.utils.AcsButton
+            android:id="@+id/btn_disabled"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
             acs:ab_bgColor="#39579B"
             acs:ab_bgColorFocus="#193574"
-            acs:ab_text="Iniciar con Facebook"
+            acs:ab_text="Disabled"
             acs:ab_textBold="true"
-            acs:ab_radius="5dp"
+            acs:ab_radius="25dp"
             acs:ab_icon="@drawable/ic_facebook"
             acs:ab_iconSize="20dp"
             acs:ab_iconMarginRight="10dp"/>
@@ -29,7 +83,15 @@
             android:id="@+id/load"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cargar contenido"/>
+            android:layout_marginTop="10dp"
+            android:text="Load Content"/>
+
+        <Button
+            android:id="@+id/toast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Show Toast"/>
 
     </LinearLayout>
 

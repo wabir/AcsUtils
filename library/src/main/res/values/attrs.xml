@@ -7,9 +7,9 @@
         <attr name="iconSize" format="dimension"/>
 
         <attr name="titleSize" format="dimension"/>
-        <attr name="titleColor" format="color" />
+        <attr name="titleColor" format="color"/>
         <attr name="subtitleSize" format="dimension"/>
-        <attr name="subtitleColor" format="color" />
+        <attr name="subtitleColor" format="color"/>
 
         <attr name="emptyIcon" format="reference"/>
         <attr name="emptyTitle" format="string"/>
@@ -25,25 +25,29 @@
     </declare-styleable>
 
     <declare-styleable name="AcsButton">
-        <attr name="ab_bgColor" format="color" />
-        <attr name="ab_bgColorFocus" format="color" />
+        <attr name="ab_bgColor" format="color"/>
+        <attr name="ab_bgColorFocus" format="color"/>
 
         <attr name="ab_text" format="string"/>
         <attr name="ab_textSize" format="dimension"/>
         <attr name="ab_textBold" format="boolean"/>
         <attr name="ab_textAllCaps" format="boolean"/>
+        <attr name="ab_textColor" format="color"/>
+
         <attr name="ab_radius" format="dimension"/>
-        <attr name="ab_borderColor" format="color" />
-        <attr name="ab_borderWidth" format="dimension" />
+        <attr name="ab_borderColor" format="color"/>
+        <attr name="ab_borderWidth" format="dimension"/>
 
         <attr name="ab_loadingSize" format="dimension"/>
+        <attr name="ab_loadingColor" format="color"/>
 
-        <attr name="ab_icon" format="reference" />
-        <attr name="ab_iconSize" format="dimension" />
-        <attr name="ab_iconMarginLeft" format="dimension" />
-        <attr name="ab_iconMarginRight" format="dimension" />
-        <attr name="ab_iconMarginTop" format="dimension" />
-        <attr name="ab_iconMarginBottom" format="dimension" />
+        <attr name="ab_icon" format="reference"/>
+        <attr name="ab_iconSize" format="dimension"/>
+        <attr name="ab_iconColor" format="color"/>
+        <attr name="ab_iconMarginLeft" format="dimension"/>
+        <attr name="ab_iconMarginRight" format="dimension"/>
+        <attr name="ab_iconMarginTop" format="dimension"/>
+        <attr name="ab_iconMarginBottom" format="dimension"/>
     </declare-styleable>
 
 </resources>

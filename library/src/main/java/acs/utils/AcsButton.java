@@ -37,13 +37,15 @@ public class AcsButton extends LinearLayout{
     private int mRadius 		            = 0;
 
     private int mLoadingSize                = spToPx(35);
+    private int mLoadingColor 	            = mTextColor;
 
     private Drawable mIcon                  = null;
     private int mIconSize                   = spToPx(20);
-    private int mIconMarginLeft            = 0;
-    private int mIconMarginRight           = 0;
-    private int mIconMarginTop             = 0;
-    private int mIconMarginBottom          = 0;
+    private int mIconColor                  = 0;
+    private int mIconMarginLeft             = 0;
+    private int mIconMarginRight            = 0;
+    private int mIconMarginTop              = 0;
+    private int mIconMarginBottom           = 0;
 
     private ProgressBar mLoadingView;
     private ImageView mIconView;
@@ -67,28 +69,32 @@ public class AcsButton extends LinearLayout{
     private void initAttrs(AttributeSet attrs){
         TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.AcsButton);
 
-        mBgColor        = a.getColor(R.styleable.AcsButton_ab_bgColor, Color.parseColor("#37474F"));
-        mBgColorFocus   = a.getColor(R.styleable.AcsButton_ab_bgColorFocus, Color.parseColor("#314047"));
+        mBgColor            = a.getColor(R.styleable.AcsButton_ab_bgColor, Color.parseColor("#37474F"));
+        mBgColorFocus       = a.getColor(R.styleable.AcsButton_ab_bgColorFocus, Color.parseColor("#314047"));
 
-        mText           = a.getString(R.styleable.AcsButton_ab_text);
-        mTextSize       = (int) a.getDimension(R.styleable.AcsButton_ab_textSize, mTextSize);
-        mTextBold       = a.getBoolean(R.styleable.AcsButton_ab_textBold, mTextBold);
-        mTextAllCaps    = a.getBoolean(R.styleable.AcsButton_ab_textAllCaps, mTextAllCaps);
-        mRadius         = (int) a.getDimension(R.styleable.AcsButton_ab_radius, mRadius);
-        mBorderWidth    = (int) a.getDimension(R.styleable.AcsButton_ab_borderWidth, mBorderWidth);
-        mBorderColor    = a.getColor(R.styleable.AcsButton_ab_borderColor, Color.BLACK);
+        mText               = a.getString(R.styleable.AcsButton_ab_text);
+        mTextSize           = (int) a.getDimension(R.styleable.AcsButton_ab_textSize, mTextSize);
+        mTextBold           = a.getBoolean(R.styleable.AcsButton_ab_textBold, mTextBold);
+        mTextAllCaps        = a.getBoolean(R.styleable.AcsButton_ab_textAllCaps, mTextAllCaps);
+        mTextColor          = a.getColor(R.styleable.AcsButton_ab_textColor, mTextColor);
+
+        mRadius             = (int) a.getDimension(R.styleable.AcsButton_ab_radius, mRadius);
+        mBorderWidth        = (int) a.getDimension(R.styleable.AcsButton_ab_borderWidth, mBorderWidth);
+        mBorderColor        = a.getColor(R.styleable.AcsButton_ab_borderColor, Color.BLACK);
 
         try{
-            mIcon 	    = a.getDrawable(R.styleable.AcsButton_ab_icon);
+            mIcon 	        = a.getDrawable(R.styleable.AcsButton_ab_icon);
         } catch(Exception ignored){}
 
-        mLoadingSize    = (int)a.getDimension(R.styleable.AcsButton_ab_loadingSize, mLoadingSize);
+        mLoadingSize        = (int)a.getDimension(R.styleable.AcsButton_ab_loadingSize, mLoadingSize);
+        mLoadingColor       = a.getColor(R.styleable.AcsButton_ab_loadingColor, mLoadingColor);
 
         mIconSize           = (int)a.getDimension(R.styleable.AcsButton_ab_iconSize, mIconSize);
-        mIconMarginLeft    = (int)a.getDimension(R.styleable.AcsButton_ab_iconMarginLeft, mIconMarginLeft);
-        mIconMarginRight   = (int)a.getDimension(R.styleable.AcsButton_ab_iconMarginRight, mIconMarginRight);
-        mIconMarginTop     = (int)a.getDimension(R.styleable.AcsButton_ab_iconMarginTop, mIconMarginTop);
-        mIconMarginBottom  = (int)a.getDimension(R.styleable.AcsButton_ab_iconMarginBottom, mIconMarginBottom);
+        mIconColor          = a.getColor(R.styleable.AcsButton_ab_iconColor, mIconColor);
+        mIconMarginLeft     = (int)a.getDimension(R.styleable.AcsButton_ab_iconMarginLeft, mIconMarginLeft);
+        mIconMarginRight    = (int)a.getDimension(R.styleable.AcsButton_ab_iconMarginRight, mIconMarginRight);
+        mIconMarginTop      = (int)a.getDimension(R.styleable.AcsButton_ab_iconMarginTop, mIconMarginTop);
+        mIconMarginBottom   = (int)a.getDimension(R.styleable.AcsButton_ab_iconMarginBottom, mIconMarginBottom);
 
         if(mTextAllCaps){
             mText           = mText.toUpperCase();
@@ -191,7 +197,7 @@ public class AcsButton extends LinearLayout{
     private ProgressBar setupLoadingView(){
         ProgressBar pb = new ProgressBar(ctx);
         pb.setVisibility(View.GONE);
-        pb.getIndeterminateDrawable().setColorFilter(mTextColor, PorterDuff.Mode.SRC_ATOP);
+        pb.getIndeterminateDrawable().setColorFilter(mLoadingColor, PorterDuff.Mode.SRC_ATOP);
 
 
         LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
@@ -207,6 +213,9 @@ public class AcsButton extends LinearLayout{
         if (mIcon != null){
             ImageView iconView = new ImageView(ctx);
             iconView.setImageDrawable(mIcon);
+
+            if(mIconColor != 0)
+                iconView.setColorFilter(mIconColor);
 
             LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
             layoutParams.gravity = Gravity.CENTER;
