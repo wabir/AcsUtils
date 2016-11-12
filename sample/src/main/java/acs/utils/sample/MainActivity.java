@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 
+import java.util.Random;
+
 import acs.utils.Acs;
 import acs.utils.AcsBox;
 import acs.utils.AcsButton;
@@ -16,8 +18,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AcsBox mBox;
     private AcsButton mBtnCircle;
     private AcsButton mBtnLogin;
+    private AcsButton mBtnCircleText;
     private AcsButton mBtnLight;
     private AcsButton mBtnDisabled;
+    private AcsButton mBtnLeft;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +31,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBox = (AcsBox) findViewById(R.id.box);
         mBtnCircle = (AcsButton) findViewById(R.id.btn_circle);
         mBtnLogin = (AcsButton) findViewById(R.id.btn_login);
+        mBtnCircleText = (AcsButton) findViewById(R.id.btn_circle_text);
         mBtnLight = (AcsButton) findViewById(R.id.btn_ligth);
         mBtnDisabled = (AcsButton) findViewById(R.id.btn_disabled);
+        mBtnLeft = (AcsButton) findViewById(R.id.btn_left);
 
         mBox.onRetryng(new AcsBox.OnRetryng(){
             @Override public void onRetryng(){
@@ -42,8 +48,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBox.setOnClickListener(this);
         mBtnCircle.setOnClickListener(this);
         mBtnLogin.setOnClickListener(this);
+        mBtnCircleText.setOnClickListener(this);
         mBtnLight.setOnClickListener(this);
         mBtnDisabled.setEnabled(false);
+        mBtnLeft.setOnClickListener(this);
 
     }
 
@@ -53,14 +61,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.box:
                 mBtnCircle.hideLoading();
                 mBtnLogin.hideLoading();
+                mBtnCircleText.hideLoading();
                 mBtnLight.hideLoading();
                 break;
             case R.id.btn_circle:
             case R.id.btn_login:
+            case R.id.btn_circle_text:
             case R.id.btn_ligth:
                 mBtnCircle.setLoading();
                 mBtnLogin.setLoading();
+                mBtnCircleText.setLoading();
                 mBtnLight.setLoading();
+                break;
+            case R.id.btn_left:
+                mBtnLeft.setBgColor(Color.RED);
+                mBtnLeft.setIcon(R.drawable.ic_like);
+                mBtnLeft.setText("Text dynamically changed "+randomString());
                 break;
             case R.id.load:
                 mBox.setError();
@@ -104,4 +120,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onBackPressed(){
         mBox.hide();
     }
+
+    public static String randomString(){
+        Random generator = new Random();
+        StringBuilder randomStringBuilder = new StringBuilder();
+        int randomLength = generator.nextInt(10);
+        char tempChar;
+        for (int i = 0; i < randomLength; i++){
+            tempChar = (char) (generator.nextInt(96) + 32);
+            randomStringBuilder.append(tempChar);
+        }
+        return randomStringBuilder.toString();
+    }
+
+
 }

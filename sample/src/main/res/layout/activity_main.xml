@@ -32,8 +32,9 @@
 
             <acs.utils.AcsButton
                 android:id="@+id/btn_login"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="50dp"
+                android:layout_weight="1"
                 android:layout_marginLeft="10dp"
                 acs:ab_bgColor="#39579B"
                 acs:ab_bgColorFocus="#193574"
@@ -42,7 +43,29 @@
                 acs:ab_radius="5dp"
                 acs:ab_icon="@drawable/ic_facebook"
                 acs:ab_iconSize="20dp"
-                acs:ab_iconMarginRight="10dp"/>
+                acs:ab_iconTop="true"/>
+
+            <acs.utils.AcsButton
+                android:id="@+id/btn_circle_text"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
+                android:elevation="3dp"
+                acs:ab_bgColor="#3FA75A"
+                acs:ab_bgColorFocus="#399651"
+                acs:ab_bgColorDisabled="#00F"
+                acs:ab_radius="60dp"
+                acs:ab_icon="@drawable/ic_car"
+                acs:ab_iconSize="35dp"
+                acs:ab_iconTop="true"
+                acs:ab_iconColor="#FFFFFF"
+                acs:ab_iconMarginBottom="0dp"
+                acs:ab_text="Normal"
+                acs:ab_textSize="9dp"
+                acs:ab_textAllCaps="true"
+                acs:ab_borderWidth="4dp"
+                acs:ab_borderColor="#FFFFFF"
+                acs:ab_borderColorDisabled="#F00"/>
 
         </LinearLayout>
 
@@ -53,9 +76,10 @@
             android:layout_marginTop="10dp"
             acs:ab_bgColor="#F6F7F9"
             acs:ab_bgColorFocus="#E9EBEE"
-            acs:ab_text="Login"
+            acs:ab_text="Login with Facebook for more lines and text large"
             acs:ab_textBold="true"
             acs:ab_textColor="#575757"
+            acs:ab_textSingleLine="true"
             acs:ab_radius="5dp"
             acs:ab_loadingColor="#39579B"
             acs:ab_icon="@drawable/ic_facebook"
@@ -75,6 +99,23 @@
             acs:ab_text="Disabled"
             acs:ab_textBold="true"
             acs:ab_radius="25dp"
+            acs:ab_icon="@drawable/ic_facebook"
+            acs:ab_iconSize="20dp"
+            acs:ab_iconMarginRight="10dp"/>
+
+        <acs.utils.AcsButton
+            android:id="@+id/btn_left"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            acs:ab_centered="false"
+            acs:ab_bgColor="#39579B"
+            acs:ab_bgColorFocus="#193574"
+            acs:ab_text="Aligned left wing and surpassing the maximum of lines to prove"
+            acs:ab_textSingleLine="true"
+            acs:ab_radius="5dp"
             acs:ab_icon="@drawable/ic_facebook"
             acs:ab_iconSize="20dp"
             acs:ab_iconMarginRight="10dp"/>

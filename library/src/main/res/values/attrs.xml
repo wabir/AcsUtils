@@ -25,17 +25,22 @@
     </declare-styleable>
 
     <declare-styleable name="AcsButton">
+        <attr name="ab_centered" format="boolean"/>
+
         <attr name="ab_bgColor" format="color"/>
         <attr name="ab_bgColorFocus" format="color"/>
+        <attr name="ab_bgColorDisabled" format="color"/>
 
         <attr name="ab_text" format="string"/>
         <attr name="ab_textSize" format="dimension"/>
         <attr name="ab_textBold" format="boolean"/>
         <attr name="ab_textAllCaps" format="boolean"/>
         <attr name="ab_textColor" format="color"/>
+        <attr name="ab_textSingleLine" format="boolean"/>
 
         <attr name="ab_radius" format="dimension"/>
         <attr name="ab_borderColor" format="color"/>
+        <attr name="ab_borderColorDisabled" format="color"/>
         <attr name="ab_borderWidth" format="dimension"/>
 
         <attr name="ab_loadingSize" format="dimension"/>
@@ -48,6 +53,7 @@
         <attr name="ab_iconMarginRight" format="dimension"/>
         <attr name="ab_iconMarginTop" format="dimension"/>
         <attr name="ab_iconMarginBottom" format="dimension"/>
+        <attr name="ab_iconTop" format="boolean"/>
     </declare-styleable>
 
 </resources>
