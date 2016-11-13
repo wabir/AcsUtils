@@ -12,6 +12,8 @@ AcsButton       | -----
 AcsLock         | ----
 AcsToast        | --
 
+[![](https://media.giphy.com/media/Ym9YAIkYTPvhe/giphy.gif)](#)
+
 ## Gradle Dependency
 
 1. Add the JitPack repository to your build file

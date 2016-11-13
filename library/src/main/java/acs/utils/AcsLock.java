@@ -6,6 +6,9 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
+import android.support.annotation.StringRes;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -463,9 +466,12 @@ public class AcsLock extends RelativeLayout implements View.OnTouchListener {
         this.listener = listener;
     }
     // Fondo
-    public void setBgColorOff(int color){
+    public void setBgColorOff(@ColorInt int color){
         mBgColorOff = color;
         setupBackground();
+    }
+    public void setBgColorOffRes(@ColorRes int res_color){
+        setBgColorOff(getResources().getColor(res_color));
     }
     // Thumb Texto
     public void setThumbTextOff(String text){
@@ -475,21 +481,27 @@ public class AcsLock extends RelativeLayout implements View.OnTouchListener {
             mThumbTextView.setText(mThumbTextOff);
         }
     }
-    public void setThumbTextOff(int res_text){
+    public void setThumbTextOff(@StringRes int res_text){
         setThumbTextOff(ctx.getString(res_text));
     }
-    public void setThumbTextColorOff(int color){
+    public void setThumbTextColorOff(@ColorInt int color){
         mThumbTextColorOff = color;
         if(!isOn && mThumbTextView != null){
             mThumbTextView.setTextColor(mThumbTextColorOff);
         }
     }
+    public void setThumbTextColorOffRes(@ColorRes int res_color){
+        setThumbTextColorOff(getResources().getColor(res_color));
+    }
     // Thumb icon
-    public void setThumbIconColorOff(int color){
+    public void setThumbIconColorOff(@ColorInt int color){
         mThumbIconColorOff = color;
         if(!isOn && mThumbIconView != null){
             mThumbIconView.setColorFilter(mThumbIconColorOff);
         }
+    }
+    public void setThumbIconColorOffRes(@ColorRes int res_color){
+        setThumbIconColorOff(getResources().getColor(res_color));
     }
 
 
