@@ -56,4 +56,44 @@
         <attr name="ab_iconTop" format="boolean"/>
     </declare-styleable>
 
+    <declare-styleable name="AcsLock">
+        <attr name="al_radius" format="dimension"/>
+        <attr name="al_bgColorOff" format="color"/>
+        <attr name="al_bgColorOn" format="color"/>
+
+        <attr name="al_borderWidth" format="dimension"/>
+        <attr name="al_borderColorOff" format="color"/>
+        <attr name="al_borderColorOn" format="color"/>
+
+        <attr name="al_thumbWidth" format="dimension"/>
+        <attr name="al_thumbRadius" format="dimension"/>
+        <attr name="al_thumbBgColorOff" format="color"/>
+        <attr name="al_thumbBgColorOn" format="color"/>
+        <attr name="al_thumbTextOff" format="string"/>
+        <attr name="al_thumbTextOn" format="string"/>
+        <attr name="al_thumbTextAllCaps" format="boolean"/>
+        <attr name="al_thumbTextSize" format="dimension"/>
+        <attr name="al_thumbTextColorOff" format="color"/>
+        <attr name="al_thumbTextColorOn" format="color"/>
+        <attr name="al_thumbIconOff" format="reference"/>
+        <attr name="al_thumbIconOn" format="reference"/>
+        <attr name="al_thumbIconSize" format="dimension"/>
+        <attr name="al_thumbIconColorOff" format="color"/>
+        <attr name="al_thumbIconColorOn" format="color"/>
+        <attr name="al_thumbIconMrgLeftOff" format="dimension"/>
+        <attr name="al_thumbIconMrgLeftOn" format="dimension"/>
+        <attr name="al_thumbIconMrgRightOff" format="dimension"/>
+        <attr name="al_thumbIconMrgRightOn" format="dimension"/>
+        <attr name="al_thumbBorderWidth" format="dimension"/>
+        <attr name="al_thumbBorderColorOff" format="color"/>
+        <attr name="al_thumbBorderColorOn" format="color"/>
+        <attr name="al_thumbPaddingLeft" format="dimension"/>
+        <attr name="al_thumbPaddingTop" format="dimension"/>
+        <attr name="al_thumbPaddingRight" format="dimension"/>
+        <attr name="al_thumbPaddingBottom" format="dimension"/>
+
+        <attr name="al_tolerance" format="dimension"/>
+
+    </declare-styleable>
+
 </resources>

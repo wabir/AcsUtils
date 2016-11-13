@@ -52,7 +52,7 @@
                 android:layout_margin="5dp"
                 android:elevation="3dp"
                 acs:ab_bgColor="#3FA75A"
-                acs:ab_bgColorFocus="#399651"
+                acs:ab_bgColorFocus="#000"
                 acs:ab_bgColorDisabled="#00F"
                 acs:ab_radius="60dp"
                 acs:ab_icon="@drawable/ic_car"
@@ -133,6 +133,47 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Show Toast"/>
+
+        <acs.utils.AcsLock
+            android:id="@+id/lock_status"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:padding="6dp"
+            acs:al_radius="25dp"
+            acs:al_borderWidth="6dp"
+            acs:al_borderColorOff="#000"
+            acs:al_thumbWidth="100dp"
+            acs:al_thumbBgColorOff="#FFF"
+            acs:al_thumbTextColorOff="#000"
+            acs:al_thumbTextColorOn="#00F"
+            acs:al_thumbTextOff="Offline"
+            acs:al_thumbTextOn="Online"
+            acs:al_thumbBorderWidth="2dp"
+            acs:al_thumbBorderColorOff="#F00"
+            acs:al_thumbPaddingLeft="10dp"
+            acs:al_thumbPaddingRight="10dp"
+            acs:al_tolerance="10dp"/>
+
+        <acs.utils.AcsLock
+            android:id="@+id/lock_nav"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:padding="3dp"
+            android:elevation="1dp"
+            acs:al_radius="20dp"
+            acs:al_bgColorOff="#00BE3E"
+            acs:al_thumbBgColorOff="#FFF"
+            acs:al_thumbTextColorOff="#00BE3E"
+            acs:al_thumbTextOff="Start"
+            acs:al_thumbTextSize="12sp"
+            acs:al_thumbIconOff="@drawable/ic_chevron_right"
+            acs:al_thumbIconColorOff="#00BE3E"
+            acs:al_thumbIconSize="10dp"
+            acs:al_thumbIconMrgLeftOff="10dp"
+            acs:al_thumbIconMrgRightOn="10dp"
+            acs:al_thumbPaddingLeft="20dp"
+            acs:al_thumbPaddingRight="20dp"/>
 
     </LinearLayout>
 

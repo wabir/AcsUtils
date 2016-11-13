@@ -1,5 +1,6 @@
 package acs.utils.sample;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import java.util.Random;
 import acs.utils.Acs;
 import acs.utils.AcsBox;
 import acs.utils.AcsButton;
+import acs.utils.AcsLock;
 import acs.utils.AcsToast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AcsButton mBtnLight;
     private AcsButton mBtnDisabled;
     private AcsButton mBtnLeft;
+    private AcsLock mLockStatus;
+    private AcsLock mLockNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtnLight = (AcsButton) findViewById(R.id.btn_ligth);
         mBtnDisabled = (AcsButton) findViewById(R.id.btn_disabled);
         mBtnLeft = (AcsButton) findViewById(R.id.btn_left);
+        mLockStatus = (AcsLock) findViewById(R.id.lock_status);
+        mLockNav = (AcsLock) findViewById(R.id.lock_nav);
 
         mBox.onRetryng(new AcsBox.OnRetryng(){
             @Override public void onRetryng(){
@@ -53,6 +59,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtnDisabled.setEnabled(false);
         mBtnLeft.setOnClickListener(this);
 
+        mLockNav.onUnlock(new AcsLock.OnUnlock(){
+            @Override public void onUnlock(View v, boolean state){
+                AcsToast.show(MainActivity.this, "Locked: " + state);
+                //mLockNav.setEnabled(false);
+            }
+        });
     }
 
     @Override
@@ -77,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mBtnLeft.setBgColor(Color.RED);
                 mBtnLeft.setIcon(R.drawable.ic_like);
                 mBtnLeft.setText("Text dynamically changed "+randomString());
+                mLockStatus.setState(!mLockStatus.isOn());
+                mLockNav.setState(!mLockNav.isOn());
                 break;
             case R.id.load:
                 mBox.setError();
@@ -119,6 +133,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onBackPressed(){
         mBox.hide();
+        super.onBackPressed();
     }
 
     public static String randomString(){
