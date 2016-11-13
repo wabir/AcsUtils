@@ -3,19 +3,21 @@ package acs.utils.sample;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 
 import java.util.Random;
 
-import acs.utils.Acs;
 import acs.utils.AcsBox;
 import acs.utils.AcsButton;
 import acs.utils.AcsLock;
 import acs.utils.AcsToast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private Handler mHandler = new Handler();
 
     private AcsBox mBox;
     private AcsButton mBtnCircle;
@@ -45,6 +47,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBox.onRetryng(new AcsBox.OnRetryng(){
             @Override public void onRetryng(){
                 mBox.setLoading();
+                mHandler.postDelayed(new Runnable(){
+                    @Override public void run(){
+                        mBox.hide();
+                    }
+                }, 2000);
             }
         });
 
@@ -59,10 +66,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtnDisabled.setEnabled(false);
         mBtnLeft.setOnClickListener(this);
 
-        mLockNav.onUnlock(new AcsLock.OnUnlock(){
-            @Override public void onUnlock(View v, boolean state){
-                AcsToast.show(MainActivity.this, "Locked: " + state);
+        mLockNav.onUnlock(new AcsLock.OnLock(){
+            @Override public void onLock(AcsLock v, boolean state){
+                if(!state) return;
+                //AcsToast.show(MainActivity.this, "Locked: " + state);
                 //mLockNav.setEnabled(false);
+                mLockNav.setEnabled(false);
+                mHandler.postDelayed(new Runnable(){
+                    @Override public void run(){
+                        if(mLockNav.getBgColorOff() == Color.RED){
+                            mLockNav.setBgColorOff(Color.parseColor("#00BE3E"));
+                            mLockNav.setThumbTextColorOff(Color.parseColor("#00BE3E"));
+                            mLockNav.setThumbIconColorOff(Color.parseColor("#00BE3E"));
+                            mLockNav.setThumbTextOff("Start");
+                        } else {
+                            mLockNav.setBgColorOff(Color.RED);
+                            mLockNav.setThumbTextColorOff(Color.RED);
+                            mLockNav.setThumbIconColorOff(Color.RED);
+                            mLockNav.setThumbTextOff("Finalize");
+                        }
+                        mLockNav.setEnabled(true);
+                        mLockNav.setOff();
+                    }
+                }, 2000);
             }
         });
     }
@@ -91,6 +117,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mBtnLeft.setText("Text dynamically changed "+randomString());
                 mLockStatus.setState(!mLockStatus.isOn());
                 mLockNav.setState(!mLockNav.isOn());
+                mLockNav.setBgColorOff(Color.BLACK);
+                mLockNav.setThumbTextColorOff(Color.BLACK);
+                mLockNav.setThumbTextOff(randomString());
+                mLockNav.setThumbIconColorOff(Color.BLACK);
                 break;
             case R.id.load:
                 mBox.setError();
@@ -139,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static String randomString(){
         Random generator = new Random();
         StringBuilder randomStringBuilder = new StringBuilder();
-        int randomLength = generator.nextInt(10);
+        int randomLength = generator.nextInt(30);
         char tempChar;
         for (int i = 0; i < randomLength; i++){
             tempChar = (char) (generator.nextInt(96) + 32);
@@ -147,6 +177,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return randomStringBuilder.toString();
     }
-
 
 }

@@ -1,13 +1,16 @@
 # AcsUtils
+> Utilities for Android Developers
 
 [![](https://jitpack.io/v/acslmv/AcsUtils.svg)](https://jitpack.io/#acslmv/AcsUtils)
 
->Utilidades
+## Widgets
 
-
-## Preview
-
-<img src="https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/screen.gif" width="240px" height="240px"/>
+Name | Status
+------------    | -------------
+AcsBox          | ----
+AcsButton       | -----
+AcsLock         | ----
+AcsToast        | --
 
 ## Gradle Dependency
 
@@ -26,13 +29,41 @@ allprojects {
 
 ``` gradle
 dependencies {
-    compile 'com.github.acslmv:AcsUtils:1.0'
+    ...
+    compile 'com.github.acslmv:AcsUtils:1.3'
 }
 ```
 
 
 ## AcsButton
-- Xml
+- XML Atributos
+
+Name                    | Format    | Description
+---                     | ---       | ---
+ab_centered             | boolean   | Centrar contenido
+ab_bgColor              | color     | -
+ab_bgColorFocus         | color     | -
+ab_bgColorDisabled      | color     | Color de fondo inabilitado (por defecto aplica transparencia)
+ab_text                 | string    | -
+ab_textSize             | dimension | -
+ab_textBold             | boolean   | Texto en negrita
+ab_textAllCaps          | boolean   | Texto mayuscula
+ab_textColor            | color     | -
+ab_textSingleLine       | boolean   | Texto en una sola linea (aplica 3 puntos al final)
+ab_radius               | dimension | Border redondeado
+ab_borderColor          | color     | -
+ab_borderColorDisabled  | color     | -
+ab_borderWidth          | dimension | -
+ab_loadingSize          | dimension | -
+ab_loadingColor         | color     | -
+ab_icon                 | reference | -
+ab_iconSize             | dimension | -
+ab_iconColor            | color     | -
+ab_iconMarginLeft       | dimension | -
+ab_iconMarginRight      | dimension | -
+ab_iconMarginTop        | dimension | -
+ab_iconMarginBottom     | dimension | -
+ab_iconTop              | boolean   | -
 
 ```xml
 <acs.utils.AcsButton
@@ -50,7 +81,7 @@ dependencies {
     acs:ab_iconMarginRight="10dp"/>
 ```
  
-- Java
+- JAVA
 
 ```java
 ...
@@ -58,24 +89,11 @@ button.setLoading();
 button.hideLoading();
 ```
 
-## Style
-> 
- ```xml
-Good!
- ```
-
-Style | Preview
-------------     |   -------------
-RotatingPlane    | <img src='https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/RotatingPlane.gif' alt='RotatingPlane' width="90px" height="90px"/>
 
 
 
-
-
-
-
-## Acknowledgements
-- [SpinKit](https://github.com/tobiasahlin/SpinKit).
+## Author
+- [Alvaro C. S.](http://www.alvarocs.com/)
 
 
 

@@ -131,7 +131,6 @@
             android:id="@+id/toast"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:text="Show Toast"/>
 
         <acs.utils.AcsLock
@@ -163,17 +162,25 @@
             android:elevation="1dp"
             acs:al_radius="20dp"
             acs:al_bgColorOff="#00BE3E"
+            acs:al_bgColorOn="#777"
             acs:al_thumbBgColorOff="#FFF"
+            acs:al_thumbBgColorOn="#00FFFFFF"
             acs:al_thumbTextColorOff="#00BE3E"
+            acs:al_thumbTextColorOn="#FFF"
+            acs:al_thumbTextOn=""
             acs:al_thumbTextOff="Start"
             acs:al_thumbTextSize="12sp"
             acs:al_thumbIconOff="@drawable/ic_chevron_right"
+            acs:al_thumbIconOn="@drawable/ic_loading"
             acs:al_thumbIconColorOff="#00BE3E"
+            acs:al_thumbIconColorOn="#FFF"
             acs:al_thumbIconSize="10dp"
+            acs:al_thumbIconSizeOn="36dp"
             acs:al_thumbIconMrgLeftOff="10dp"
-            acs:al_thumbIconMrgRightOn="10dp"
+            acs:al_thumbIconMrgRightOff="20dp"
+            acs:al_thumbIconMrgRightOn="0dp"
             acs:al_thumbPaddingLeft="20dp"
-            acs:al_thumbPaddingRight="20dp"/>
+            acs:al_thumbPaddingRight="0dp"/>
 
     </LinearLayout>
 

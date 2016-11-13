@@ -43,6 +43,7 @@ public class AcsLock extends RelativeLayout implements View.OnTouchListener {
     private int mThumbIconOff           = 0; // Icon
     private int mThumbIconOn            = 0;
     private int mThumbIconSize          = toPX(15);
+    private int mThumbIconSizeOn        = 0;
     private int mThumbIconColorOff      = 0;
     private int mThumbIconColorOn       = 0;
     private int mThumbIconMrgLeftOff    = 0;
@@ -74,7 +75,7 @@ public class AcsLock extends RelativeLayout implements View.OnTouchListener {
     private int thumbWidth = 0;     // Ancho del boton Deslizable
 
 
-    private OnUnlock listener = null;
+    private OnLock listener = null;
 
     public AcsLock(Context context){
         super(context);
@@ -120,6 +121,7 @@ public class AcsLock extends RelativeLayout implements View.OnTouchListener {
         mThumbIconOff           = a.getResourceId(R.styleable.AcsLock_al_thumbIconOff, mThumbIconOff);
         mThumbIconOn            = a.getResourceId(R.styleable.AcsLock_al_thumbIconOn, mThumbIconOff);
         mThumbIconSize          = (int) a.getDimension(R.styleable.AcsLock_al_thumbIconSize, mThumbIconSize);
+        mThumbIconSizeOn        = (int) a.getDimension(R.styleable.AcsLock_al_thumbIconSizeOn, mThumbIconSize);
         mThumbIconColorOff      = a.getColor(R.styleable.AcsLock_al_thumbIconColorOff, mThumbIconColorOff);
         mThumbIconColorOn       = a.getColor(R.styleable.AcsLock_al_thumbIconColorOn, mThumbIconColorOn);
         mThumbIconMrgLeftOff    = (int) a.getDimension(R.styleable.AcsLock_al_thumbIconMrgLeftOff, mThumbIconMrgLeftOff);
@@ -185,8 +187,8 @@ public class AcsLock extends RelativeLayout implements View.OnTouchListener {
      */
     private void animateBackgroundColor(int colorFrom, int colorTo){
         ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
-        colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override public void onAnimationUpdate(ValueAnimator animator) {
+        colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
+            @Override public void onAnimationUpdate(ValueAnimator animator){
                 mGD.setColor((int) animator.getAnimatedValue());
             }
         });
@@ -349,6 +351,8 @@ public class AcsLock extends RelativeLayout implements View.OnTouchListener {
             mThumbIconView.setImageResource(mThumbIconOn);
             if(mThumbIconColorOn != 0) mThumbIconView.setColorFilter(mThumbIconColorOn);
             LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mThumbIconView.getLayoutParams();
+            params.width = mThumbIconSizeOn;
+            params.height = mThumbIconSizeOn;
             params.leftMargin = mThumbIconMrgLeftOn;
             params.rightMargin = mThumbIconMrgRightOn;
         }
@@ -364,7 +368,7 @@ public class AcsLock extends RelativeLayout implements View.OnTouchListener {
         animateSlider(false);
 
         animateBackgroundColor(mBgColorOff, mBgColorOn);
-        if(send_ballback && listener != null) listener.onUnlock(this, true);
+        if(send_ballback && listener != null) listener.onLock(this, true);
     }
     public void setOn(){
         setOn(false);
@@ -383,6 +387,8 @@ public class AcsLock extends RelativeLayout implements View.OnTouchListener {
             mThumbIconView.setImageResource(mThumbIconOff);
             if(mThumbIconColorOff != 0) mThumbIconView.setColorFilter(mThumbIconColorOff);
             LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mThumbIconView.getLayoutParams();
+            params.width = mThumbIconSize;
+            params.height = mThumbIconSize;
             params.leftMargin = mThumbIconMrgLeftOff;
             params.rightMargin = mThumbIconMrgRightOff;
         }
@@ -397,7 +403,7 @@ public class AcsLock extends RelativeLayout implements View.OnTouchListener {
         setupBackgroundThumb();
         animateSlider(true);
         animateBackgroundColor(mBgColorOn, mBgColorOff);
-        if(send_ballback && listener != null) listener.onUnlock(this, false);
+        if(send_ballback && listener != null) listener.onLock(this, false);
     }
     public void setOff(){
         setOff(false);
@@ -414,16 +420,20 @@ public class AcsLock extends RelativeLayout implements View.OnTouchListener {
         }
     }
 
-    // Obtener
-    public boolean isOn(){
-        return isOn;
-    }
-
     private void setMarginLeft(int margin){
         if(mThumbView == null) return;
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mThumbView.getLayoutParams();
         params.setMargins(margin, 0, 0, 0);
         mThumbView.setLayoutParams(params);
+    }
+
+    // Obtener
+    public boolean isOn(){
+        return isOn;
+    }
+
+    public int getBgColorOff(){
+        return mBgColorOff;
     }
 
 
@@ -448,14 +458,43 @@ public class AcsLock extends RelativeLayout implements View.OnTouchListener {
     /**
      * Asignar valores
      */
-
-    public void onUnlock(OnUnlock listener){
+    // Listener
+    public void onUnlock(OnLock listener){
         this.listener = listener;
+    }
+    // Fondo
+    public void setBgColorOff(int color){
+        mBgColorOff = color;
+        setupBackground();
+    }
+    // Thumb Texto
+    public void setThumbTextOff(String text){
+        mThumbTextOff = text;
+        if(mThumbTextAllCaps) mThumbTextOff = mThumbTextOff.toUpperCase();
+        if(!isOn && mThumbTextView != null){
+            mThumbTextView.setText(mThumbTextOff);
+        }
+    }
+    public void setThumbTextOff(int res_text){
+        setThumbTextOff(ctx.getString(res_text));
+    }
+    public void setThumbTextColorOff(int color){
+        mThumbTextColorOff = color;
+        if(!isOn && mThumbTextView != null){
+            mThumbTextView.setTextColor(mThumbTextColorOff);
+        }
+    }
+    // Thumb icon
+    public void setThumbIconColorOff(int color){
+        mThumbIconColorOff = color;
+        if(!isOn && mThumbIconView != null){
+            mThumbIconView.setColorFilter(mThumbIconColorOff);
+        }
     }
 
 
-    public interface OnUnlock{
-        void onUnlock(View v, boolean state);
+    public interface OnLock{
+        void onLock(AcsLock acsLock, boolean state);
     }
 
 

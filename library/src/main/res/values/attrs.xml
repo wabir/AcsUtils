@@ -78,6 +78,7 @@
         <attr name="al_thumbIconOff" format="reference"/>
         <attr name="al_thumbIconOn" format="reference"/>
         <attr name="al_thumbIconSize" format="dimension"/>
+        <attr name="al_thumbIconSizeOn" format="dimension"/>
         <attr name="al_thumbIconColorOff" format="color"/>
         <attr name="al_thumbIconColorOn" format="color"/>
         <attr name="al_thumbIconMrgLeftOff" format="dimension"/>
