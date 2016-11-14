@@ -97,4 +97,8 @@
 
     </declare-styleable>
 
+    <declare-styleable name="AcsRating">
+
+    </declare-styleable>
+
 </resources>
