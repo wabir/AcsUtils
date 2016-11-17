@@ -115,6 +115,7 @@
             acs:ab_bgColorFocus="#193574"
             acs:ab_text="Aligned left wing and surpassing the maximum of lines to prove"
             acs:ab_textSingleLine="true"
+            acs:ab_textAllCaps="true"
             acs:ab_radius="5dp"
             acs:ab_icon="@drawable/ic_facebook"
             acs:ab_iconSize="20dp"

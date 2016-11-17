@@ -129,8 +129,8 @@ public class AcsButton extends LinearLayout{
             this.setGravity(Gravity.CENTER_VERTICAL);
         }
 
-        this.setClickable(true);
-        this.setFocusable(true);
+        //this.setClickable(true);
+        //this.setFocusable(true);
 
 
         mLoadingView    = setupLoadingView();
@@ -418,9 +418,9 @@ public class AcsButton extends LinearLayout{
 
     // Texto
     public void setText(String text){
-        mText = text;
+        mText = mTextAllCaps ? text.toUpperCase() : text;
         if(mTextView != null){
-            mTextView.setText(text);
+            mTextView.setText(mText);
         }
     }
     public void setText(int res_text){
