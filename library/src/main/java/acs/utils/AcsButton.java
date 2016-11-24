@@ -100,7 +100,7 @@ public class AcsButton extends LinearLayout{
         } catch(Exception ignored){}
 
         mLoadingSize        = (int)a.getDimension(R.styleable.AcsButton_ab_loadingSize, mLoadingSize);
-        mLoadingColor       = a.getColor(R.styleable.AcsButton_ab_loadingColor, mLoadingColor);
+        mLoadingColor       = a.getColor(R.styleable.AcsButton_ab_loadingColor, mTextColor);
 
         mIconSize           = (int)a.getDimension(R.styleable.AcsButton_ab_iconSize, mIconSize);
         mIconColor          = a.getColor(R.styleable.AcsButton_ab_iconColor, mIconColor);
@@ -416,7 +416,33 @@ public class AcsButton extends LinearLayout{
         setupBackground();
     }
 
+    // Icon
+    public void setIconSize(int size){
+        mIconSize = spToPx(size);
+        if(mIconView != null){
+            mIconView.getLayoutParams().width  = mIconSize;
+            mIconView.getLayoutParams().height = mIconSize;
+        }
+    }
+    public void setIconVisible(boolean visible){
+        if(mIconView != null){
+            mIconView.setVisibility(visible ? View.VISIBLE : View.GONE);
+        }
+    }
+
     // Texto
+    public void setTextSize(int size){
+        mTextSize = spToPx(size);
+        if(mTextView != null){
+            mTextView.setTextSize(mTextSize);
+        }
+    }
+    public void setTextVisible(boolean visible){
+        if(mTextView != null){
+            mTextView.setVisibility(visible ? View.VISIBLE : View.GONE);
+        }
+    }
+
     public void setText(String text){
         mText = mTextAllCaps ? text.toUpperCase() : text;
         if(mTextView != null){
