@@ -13,6 +13,8 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -452,11 +454,40 @@ public class AcsButton extends LinearLayout{
     public void setText(int res_text){
         setText(ctx.getString(res_text));
     }
+
+    public void setTextColor(@ColorInt int color){
+        mTextColor = color;
+        if(mTextView != null){
+            mTextView.setTextColor(mTextColor);
+        }
+    }
+    public void setTextColorRes(@ColorRes int res_color){
+        setTextColor(ctx.getResources().getColor(res_color));
+    }
+
     // Icono
     public void setIcon(int res_icon){
         if(mIconView != null){
             mIconView.setImageResource(res_icon);
         }
+    }
+    public void setIconColor(@ColorInt int color){
+        mIconColor = color;
+        if(mIconView != null){
+            mIconView.setColorFilter(mIconColor);
+        }
+    }
+    public void setIconColorRes(@ColorRes int res_color){
+        setIconColor(ctx.getResources().getColor(res_color));
+    }
+
+    // Foreground color: icon, text
+    public void setFgColor(@ColorInt int color){
+        setTextColor(color);
+        setIconColor(color);
+    }
+    public void setFgColorRes(@ColorRes int res_color){
+        setFgColor(ctx.getResources().getColor(res_color));
     }
 
     /**

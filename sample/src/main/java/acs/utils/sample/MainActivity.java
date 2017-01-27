@@ -101,6 +101,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mBtnLogin.hideLoading();
                 mBtnCircleText.hideLoading();
                 mBtnLight.hideLoading();
+
+                mBtnLight.setFgColorRes(R.color.colorAccent);
                 break;
             case R.id.btn_circle:
             case R.id.btn_login:

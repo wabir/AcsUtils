@@ -22,15 +22,18 @@ public class AcsBox extends RelativeLayout {
 
     private OnRetryng callback;
 
-    private int mLoadingColor       = 0;
+    private int mBgColor            = Color.WHITE;
+
     // Valores (Loading)
-    private int mLoadingSize        = Acs.spToPx(getContext(), 70);
+    private int mLoadingSize        = Acs.px(getContext(), 70);
+    private int mLoadingColor       = 0;
 
-    private int mIconSize           = Acs.spToPx(getContext(), 70);
+    private int mIconSize           = Acs.px(getContext(), 70);
+    private int mIconColor          = 0;
 
-    private int mTitleSize          = Acs.spToPx(getContext(), 17);
+    private int mTitleSize          = Acs.px(getContext(), 17);
     private int mTitleColor         = Color.BLACK;
-    private int mSubtitleSize       = Acs.spToPx(getContext(), 14);
+    private int mSubtitleSize       = Acs.px(getContext(), 14);
     private int mSubtitleColor      = Color.GRAY;
 
     private int mEmptyIcon          = R.drawable.ic_cloud;
@@ -43,7 +46,7 @@ public class AcsBox extends RelativeLayout {
 
     private String mButtonText      = "Retrying";
 
-    private int mSpacing            = Acs.spToPx(getContext(), 10);
+    private int mSpacing            = Acs.px(getContext(), 10);
 
     // Vistas
     private LinearLayout mBox;
@@ -63,10 +66,13 @@ public class AcsBox extends RelativeLayout {
 
         TypedArray a = ctx.obtainStyledAttributes(attrs, R.styleable.AcsBox);
 
+        mBgColor        = a.getColor(R.styleable.AcsBox_bgColor, mBgColor);
+
         mLoadingSize    = (int) a.getDimension(R.styleable.AcsBox_loadingSize, mLoadingSize);
-        mLoadingColor   = a.getColor(R.styleable.AcsBox_loadingSize, mLoadingColor);
+        mLoadingColor   = a.getColor(R.styleable.AcsBox_loadingColor, mLoadingColor);
 
         mIconSize       = (int) a.getDimension(R.styleable.AcsBox_iconSize, mIconSize);
+        mIconColor      = a.getColor(R.styleable.AcsBox_iconColor, mIconColor);
 
         mTitleSize      = (int) a.getDimension(R.styleable.AcsBox_titleSize, mTitleSize);
         mTitleColor     = a.getColor(R.styleable.AcsBox_titleColor, mTitleColor);
@@ -122,12 +128,12 @@ public class AcsBox extends RelativeLayout {
      */
     private LinearLayout setupContainerView(){
         LinearLayout box = new LinearLayout(ctx);
-        box.setBackgroundColor(Color.WHITE);
+        box.setBackgroundColor(mBgColor);
         box.setClickable(true);
         box.setOrientation(LinearLayout.VERTICAL);
         box.setGravity(Gravity.CENTER);
 
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        LayoutParams lp = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
 
         box.setLayoutParams(lp);
         return box;
@@ -150,6 +156,8 @@ public class AcsBox extends RelativeLayout {
     private ImageView setupIconView(){
         ImageView iconView = new ImageView(ctx);
 
+        if(mIconColor != 0) iconView.setColorFilter(mIconColor);
+
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         lp.gravity = Gravity.CENTER;
         lp.width = mIconSize;
@@ -164,7 +172,7 @@ public class AcsBox extends RelativeLayout {
     private TextView setupTitleView(){
         TextView textView = new TextView(ctx);
         textView.setTextColor(mTitleColor);
-        textView.setTextSize(Acs.pxToSp(ctx, mTitleSize));
+        textView.setTextSize(Acs.dp(ctx, mTitleSize));
         textView.setTypeface(null, Typeface.BOLD);
         textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         return textView;
@@ -173,7 +181,7 @@ public class AcsBox extends RelativeLayout {
     private TextView setupSubtitleView(){
         TextView textView = new TextView(ctx);
         textView.setTextColor(mSubtitleColor);
-        textView.setTextSize(Acs.pxToSp(ctx, mSubtitleSize));
+        textView.setTextSize(Acs.dp(ctx, mSubtitleSize));
         textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         return textView;
     }
@@ -244,7 +252,7 @@ public class AcsBox extends RelativeLayout {
 
     public void setValues(int icon, String title, String subtitle, boolean showButton){
         initViews();
-        mBox.setBackgroundColor(Color.WHITE);
+        mBox.setBackgroundColor(mBgColor);
         mIcon.setVisibility(View.VISIBLE);
         mTitle.setVisibility(View.VISIBLE);
         mSubtitle.setVisibility(View.VISIBLE);
@@ -263,6 +271,11 @@ public class AcsBox extends RelativeLayout {
 
     public void setError(){
         setValues(mErrorIcon, mErrorTitle, mErrorSubtitle, true);
+    }
+
+    public void setError(OnRetryng callback){
+        setError();
+        onRetryng(callback);
     }
 
     public void hide(){

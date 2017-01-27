@@ -49,7 +49,7 @@ public class AcsToast{
      * Toast
      */
     public static void show(final Context ctx, String message, Settings stg){
-        int padding = Acs.spToPx(ctx, stg.padding);
+        int padding = Acs.px(ctx, stg.padding);
 
         LinearLayout v = new LinearLayout(ctx);
         v.setGravity(Gravity.CENTER);
@@ -62,11 +62,11 @@ public class AcsToast{
         root.setClickable(true);
 
         if(stg.elevation > 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            root.setElevation(Acs.spToPx(ctx, stg.elevation));
+            root.setElevation(Acs.px(ctx, stg.elevation));
         }
 
         if(stg.margin > 0){
-            int margin = Acs.spToPx(ctx, stg.margin);
+            int margin = Acs.px(ctx, stg.margin);
             lp.setMargins(margin,margin,margin,margin);
         }
 
@@ -75,11 +75,11 @@ public class AcsToast{
 
         // Handle Radius
         if(stg.radius != 0)
-            bg.setCornerRadius(Acs.spToPx(ctx, stg.radius));
+            bg.setCornerRadius(Acs.px(ctx, stg.radius));
 
         // Handle Border
         if (stg.borderWidth != 0 && stg.borderColor != 0)
-            bg.setStroke(Acs.spToPx(ctx, stg.borderWidth), stg.borderColor);
+            bg.setStroke(Acs.px(ctx, stg.borderWidth), stg.borderColor);
 
         root.setBackgroundDrawable(bg);
 
@@ -91,10 +91,10 @@ public class AcsToast{
             if(stg.iconColor != 0)
                 iconView.setColorFilter(stg.iconColor);
 
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(Acs.spToPx(ctx, stg.iconSize), Acs.spToPx(ctx, stg.iconSize));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(Acs.px(ctx, stg.iconSize), Acs.px(ctx, stg.iconSize));
             layoutParams.gravity = Gravity.CENTER;
-            layoutParams.leftMargin = Acs.spToPx(ctx, stg.iconMarginLeft);
-            layoutParams.rightMargin = Acs.spToPx(ctx, stg.iconMarginRight);
+            layoutParams.leftMargin = Acs.px(ctx, stg.iconMarginLeft);
+            layoutParams.rightMargin = Acs.px(ctx, stg.iconMarginRight);
 
             iconView.setLayoutParams(layoutParams);
 

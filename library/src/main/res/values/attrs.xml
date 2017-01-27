@@ -2,9 +2,13 @@
 <resources>
 
     <declare-styleable name="AcsBox">
+        <attr name="bgColor" format="color"/>
+
         <attr name="loadingSize" format="dimension"/>
+        <attr name="loadingColor" format="color"/>
 
         <attr name="iconSize" format="dimension"/>
+        <attr name="iconColor" format="color"/>
 
         <attr name="titleSize" format="dimension"/>
         <attr name="titleColor" format="color"/>
