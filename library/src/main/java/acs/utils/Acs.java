@@ -28,15 +28,15 @@ public class Acs{
 
     // Asignar tipo de fuente a un TextView
     public static void setFont(Context ctx, TextView tv, String font, int style){
+        Typeface type = null;
         if(font != null && !font.isEmpty()){
-            Typeface type = null;
             try{
                 type = Typeface.createFromAsset(ctx.getAssets(), font);
             } catch (Exception e){
-                Log.e("ACS", "Error al asignar fuente", e);
+                Log.e("ACS", "Error al cargar fuente", e);
             }
-            tv.setTypeface(type, style);
         }
+        tv.setTypeface(type, style);
     }
     public static void setFont(Context ctx, TextView tv, String font){
         setFont(ctx, tv, font, Typeface.NORMAL);
