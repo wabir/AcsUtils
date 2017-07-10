@@ -145,6 +145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         stg.borderWidth = 0;
         stg.borderColor = Color.BLACK;
         stg.elevation = 4;
+        stg.font = "fonts/general.ttf";
                 /*stg.gravity         = Gravity.CENTER;
                 stg.width           = -2;
                 //stg.height          = Acs.spToPx(this, 100);

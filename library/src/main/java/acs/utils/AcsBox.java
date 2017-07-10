@@ -48,6 +48,8 @@ public class AcsBox extends RelativeLayout {
 
     private int mSpacing            = Acs.px(getContext(), 10);
 
+    private String mFont            = "";
+
     // Vistas
     private LinearLayout mBox;
     private ProgressBar mLoading;
@@ -91,6 +93,8 @@ public class AcsBox extends RelativeLayout {
         mButtonText     = defString(a.getString(R.styleable.AcsBox_buttonText), mButtonText);
 
         mSpacing       = (int) a.getDimension(R.styleable.AcsBox_spacing, mSpacing);
+
+        mFont           = a.getString(R.styleable.AcsBox_font);
 
         a.recycle();
     }
@@ -173,8 +177,9 @@ public class AcsBox extends RelativeLayout {
         TextView textView = new TextView(ctx);
         textView.setTextColor(mTitleColor);
         textView.setTextSize(Acs.dp(ctx, mTitleSize));
-        textView.setTypeface(null, Typeface.BOLD);
+        //textView.setTypeface(null, Typeface.BOLD);
         textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        Acs.setFont(ctx, textView, mFont, Typeface.BOLD);
         return textView;
     }
 
@@ -183,6 +188,7 @@ public class AcsBox extends RelativeLayout {
         textView.setTextColor(mSubtitleColor);
         textView.setTextSize(Acs.dp(ctx, mSubtitleSize));
         textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        Acs.setFont(ctx, textView, mFont);
         return textView;
     }
 
@@ -194,6 +200,7 @@ public class AcsBox extends RelativeLayout {
         lp.topMargin = mSpacing;
 
         button.setLayoutParams(lp);
+        Acs.setFont(ctx, button, mFont);
         return button;
     }
 

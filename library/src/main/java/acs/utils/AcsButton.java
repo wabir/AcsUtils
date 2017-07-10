@@ -13,6 +13,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
+import android.os.StrictMode;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.text.TextUtils;
@@ -56,6 +57,8 @@ public class AcsButton extends LinearLayout{
     private int mIconMarginTop              = 0;
     private int mIconMarginBottom           = 0;
     private boolean mIconTop                = false;
+
+    private String mFont                    = "";
 
     private ProgressBar mLoadingView;
     private ImageView mIconView;
@@ -111,6 +114,8 @@ public class AcsButton extends LinearLayout{
         mIconMarginTop      = (int)a.getDimension(R.styleable.AcsButton_ab_iconMarginTop, mIconMarginTop);
         mIconMarginBottom   = (int)a.getDimension(R.styleable.AcsButton_ab_iconMarginBottom, mIconMarginBottom);
         mIconTop            = a.getBoolean(R.styleable.AcsButton_ab_iconTop, mIconTop);
+
+        mFont               = a.getString(R.styleable.AcsButton_font);
 
         if(mTextAllCaps){
             mText           = mText.toUpperCase();
@@ -347,12 +352,13 @@ public class AcsButton extends LinearLayout{
         textView.setText(mText);
         textView.setTextColor(mTextColor);
         textView.setTextSize(pxToSp(mTextSize));
-        textView.setTypeface(null, mTextBold ? Typeface.BOLD : Typeface.NORMAL);
+        //textView.setTypeface(null, mTextBold ? Typeface.BOLD : Typeface.NORMAL);
         textView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
         if(mTextSingleLine){
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setSingleLine();
         }
+        Acs.setFont(ctx, textView, mFont, mTextBold ? Typeface.BOLD : Typeface.NORMAL);
         return textView;
     }
 

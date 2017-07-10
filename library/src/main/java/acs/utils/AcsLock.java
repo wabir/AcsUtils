@@ -5,6 +5,7 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
@@ -62,6 +63,8 @@ public class AcsLock extends RelativeLayout implements View.OnTouchListener {
     private int mThumbPaddingBottom     = 0;
 
     private int mTolerance              = 0; // Tolerancia Slide
+
+    private String mFont                = "";
 
     // Views
     private LinearLayout mThumbView;
@@ -142,6 +145,8 @@ public class AcsLock extends RelativeLayout implements View.OnTouchListener {
         mThumbPaddingBottom     = (int) a.getDimension(R.styleable.AcsLock_al_thumbPaddingBottom, mThumbPaddingBottom);
 
         mTolerance              = (int) a.getDimension(R.styleable.AcsLock_al_tolerance, mTolerance);
+
+        mFont                   = a.getString(R.styleable.AcsLock_font);
 
         if(mThumbTextOff != null && mThumbTextOn == null)
             mThumbTextOn = mThumbTextOff;
@@ -240,6 +245,7 @@ public class AcsLock extends RelativeLayout implements View.OnTouchListener {
         textView.setTextColor(mThumbTextColorOff);
         textView.setLines(1);
         textView.setTextSize(toDP(mThumbTextSize));
+        Acs.setFont(ctx, textView, mFont);
         return textView;
     }
 

@@ -43,6 +43,7 @@ public class AcsToast{
         public int iconColor        = 0;
         public int iconMarginLeft   = 0;
         public int iconMarginRight  = 0;
+        public String font          = "";
     }
 
     /**
@@ -106,8 +107,10 @@ public class AcsToast{
             TextView titleView = new TextView(ctx);
             titleView.setText(message);
             titleView.setTextColor(stg.textColor);
-            titleView.setTypeface(null, stg.textBold ? Typeface.BOLD : Typeface.NORMAL);
+            //titleView.setTypeface(null, stg.textBold ? Typeface.BOLD : Typeface.NORMAL);
             titleView.setTextSize(stg.textSize);
+
+            Acs.setFont(ctx, titleView, stg.font, stg.textBold ? Typeface.BOLD : Typeface.NORMAL);
 
             root.addView(titleView);
         }
