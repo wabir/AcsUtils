@@ -22,33 +22,33 @@ public class AcsBox extends RelativeLayout {
 
     private OnRetryng callback;
 
-    private int mBgColor            = Color.WHITE;
+    private int mBgColor = Color.WHITE;
 
     // Valores (Loading)
-    private int mLoadingSize        = Acs.px(getContext(), 70);
-    private int mLoadingColor       = 0;
+    private int mLoadingSize = Acs.px(getContext(), 70);
+    private int mLoadingColor = 0;
 
-    private int mIconSize           = Acs.px(getContext(), 70);
-    private int mIconColor          = 0;
+    private int mIconSize = Acs.px(getContext(), 70);
+    private int mIconColor = 0;
 
-    private int mTitleSize          = Acs.px(getContext(), 17);
-    private int mTitleColor         = Color.BLACK;
-    private int mSubtitleSize       = Acs.px(getContext(), 14);
-    private int mSubtitleColor      = Color.GRAY;
+    private int mTitleSize = Acs.px(getContext(), 17);
+    private int mTitleColor = Color.BLACK;
+    private int mSubtitleSize = Acs.px(getContext(), 14);
+    private int mSubtitleColor = Color.GRAY;
 
-    private int mEmptyIcon          = R.drawable.ic_cloud;
-    private String mEmptyTitle      = "Oops!";
-    private String mEmptySubtitle   = "No content";
+    private int mEmptyIcon = R.drawable.ic_cloud;
+    private String mEmptyTitle = "Oops!";
+    private String mEmptySubtitle = "No content";
 
-    private int mErrorIcon          = R.drawable.ic_cloud;
-    private String mErrorTitle      = "Oops!";
-    private String mErrorSubtitle   = "There was an error";
+    private int mErrorIcon = R.drawable.ic_cloud;
+    private String mErrorTitle = "Oops!";
+    private String mErrorSubtitle = "There was an error";
 
-    private String mButtonText      = "Retrying";
+    private String mButtonText = "Retrying";
 
-    private int mSpacing            = Acs.px(getContext(), 10);
+    private int mSpacing = Acs.px(getContext(), 10);
 
-    private String mFont            = "";
+    private String mFont = "";
 
     // Vistas
     private LinearLayout mBox;
@@ -63,51 +63,51 @@ public class AcsBox extends RelativeLayout {
         init(context, attrs);
     }
 
-    private void init(Context context, AttributeSet attrs){
+    private void init(Context context, AttributeSet attrs) {
         ctx = context;
 
         TypedArray a = ctx.obtainStyledAttributes(attrs, R.styleable.AcsBox);
 
-        mBgColor        = a.getColor(R.styleable.AcsBox_bgColor, mBgColor);
+        mBgColor = a.getColor(R.styleable.AcsBox_bgColor, mBgColor);
 
-        mLoadingSize    = (int) a.getDimension(R.styleable.AcsBox_loadingSize, mLoadingSize);
-        mLoadingColor   = a.getColor(R.styleable.AcsBox_loadingColor, mLoadingColor);
+        mLoadingSize = (int) a.getDimension(R.styleable.AcsBox_loadingSize, mLoadingSize);
+        mLoadingColor = a.getColor(R.styleable.AcsBox_loadingColor, mLoadingColor);
 
-        mIconSize       = (int) a.getDimension(R.styleable.AcsBox_iconSize, mIconSize);
-        mIconColor      = a.getColor(R.styleable.AcsBox_iconColor, mIconColor);
+        mIconSize = (int) a.getDimension(R.styleable.AcsBox_iconSize, mIconSize);
+        mIconColor = a.getColor(R.styleable.AcsBox_iconColor, mIconColor);
 
-        mTitleSize      = (int) a.getDimension(R.styleable.AcsBox_titleSize, mTitleSize);
-        mTitleColor     = a.getColor(R.styleable.AcsBox_titleColor, mTitleColor);
+        mTitleSize = (int) a.getDimension(R.styleable.AcsBox_titleSize, mTitleSize);
+        mTitleColor = a.getColor(R.styleable.AcsBox_titleColor, mTitleColor);
 
-        mSubtitleSize   = (int) a.getDimension(R.styleable.AcsBox_subtitleSize, mSubtitleSize);
-        mSubtitleColor  = a.getColor(R.styleable.AcsBox_subtitleColor, mSubtitleColor);
+        mSubtitleSize = (int) a.getDimension(R.styleable.AcsBox_subtitleSize, mSubtitleSize);
+        mSubtitleColor = a.getColor(R.styleable.AcsBox_subtitleColor, mSubtitleColor);
 
-        mErrorIcon      = a.getResourceId(R.styleable.AcsBox_errorIcon, mErrorIcon);
-        mErrorTitle     = defString(a.getString(R.styleable.AcsBox_errorTitle), mErrorTitle);
-        mErrorSubtitle  = defString(a.getString(R.styleable.AcsBox_errorSubtitle), mErrorSubtitle);
+        mErrorIcon = a.getResourceId(R.styleable.AcsBox_errorIcon, mErrorIcon);
+        mErrorTitle = defString(a.getString(R.styleable.AcsBox_errorTitle), mErrorTitle);
+        mErrorSubtitle = defString(a.getString(R.styleable.AcsBox_errorSubtitle), mErrorSubtitle);
 
-        mEmptyIcon      = a.getResourceId(R.styleable.AcsBox_emptyIcon, mEmptyIcon);
-        mEmptyTitle     = defString(a.getString(R.styleable.AcsBox_emptyTitle), mEmptyTitle);
-        mEmptySubtitle  = defString(a.getString(R.styleable.AcsBox_emptySubtitle), mEmptySubtitle);
+        mEmptyIcon = a.getResourceId(R.styleable.AcsBox_emptyIcon, mEmptyIcon);
+        mEmptyTitle = defString(a.getString(R.styleable.AcsBox_emptyTitle), mEmptyTitle);
+        mEmptySubtitle = defString(a.getString(R.styleable.AcsBox_emptySubtitle), mEmptySubtitle);
 
-        mButtonText     = defString(a.getString(R.styleable.AcsBox_buttonText), mButtonText);
+        mButtonText = defString(a.getString(R.styleable.AcsBox_buttonText), mButtonText);
 
-        mSpacing       = (int) a.getDimension(R.styleable.AcsBox_spacing, mSpacing);
+        mSpacing = (int) a.getDimension(R.styleable.AcsBox_spacing, mSpacing);
 
-        mFont           = a.getString(R.styleable.AcsBox_font);
+        mFont = a.getString(R.styleable.AcsBox_font);
 
         a.recycle();
     }
 
-    private void initViews(){
-        if(mBox == null){
+    private void initViews() {
+        if (mBox == null) {
             mBox = setupContainerView();
 
-            mLoading    = setupLoadingView();
-            mIcon       = setupIconView();
-            mTitle      = setupTitleView();
-            mSubtitle   = setupSubtitleView();
-            mButton     = setupButton();
+            mLoading = setupLoadingView();
+            mIcon = setupIconView();
+            mTitle = setupTitleView();
+            mSubtitle = setupSubtitleView();
+            mButton = setupButton();
 
             mButton.setOnClickListener(clickButton);
 
@@ -130,7 +130,7 @@ public class AcsBox extends RelativeLayout {
     /**
      * Setup
      */
-    private LinearLayout setupContainerView(){
+    private LinearLayout setupContainerView() {
         LinearLayout box = new LinearLayout(ctx);
         box.setBackgroundColor(mBgColor);
         box.setClickable(true);
@@ -143,9 +143,9 @@ public class AcsBox extends RelativeLayout {
         return box;
     }
 
-    private ProgressBar setupLoadingView(){
+    private ProgressBar setupLoadingView() {
         ProgressBar pb = new ProgressBar(ctx);
-        if(mLoadingColor != 0)
+        if (mLoadingColor != 0)
             pb.getIndeterminateDrawable().setColorFilter(mLoadingColor, PorterDuff.Mode.SRC_ATOP);
 
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -157,10 +157,10 @@ public class AcsBox extends RelativeLayout {
         return pb;
     }
 
-    private ImageView setupIconView(){
+    private ImageView setupIconView() {
         ImageView iconView = new ImageView(ctx);
 
-        if(mIconColor != 0) iconView.setColorFilter(mIconColor);
+        if (mIconColor != 0) iconView.setColorFilter(mIconColor);
 
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         lp.gravity = Gravity.CENTER;
@@ -173,7 +173,7 @@ public class AcsBox extends RelativeLayout {
         return iconView;
     }
 
-    private TextView setupTitleView(){
+    private TextView setupTitleView() {
         TextView textView = new TextView(ctx);
         textView.setTextColor(mTitleColor);
         textView.setTextSize(Acs.dp(ctx, mTitleSize));
@@ -183,16 +183,23 @@ public class AcsBox extends RelativeLayout {
         return textView;
     }
 
-    private TextView setupSubtitleView(){
+    private TextView setupSubtitleView() {
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+        lp.topMargin = mSpacing;
+        lp.leftMargin = mSpacing;
+        lp.rightMargin = mSpacing;
+
         TextView textView = new TextView(ctx);
         textView.setTextColor(mSubtitleColor);
         textView.setTextSize(Acs.dp(ctx, mSubtitleSize));
-        textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        textView.setLayoutParams(lp);
+        textView.setGravity(Gravity.CENTER_HORIZONTAL);
         Acs.setFont(ctx, textView, mFont);
         return textView;
     }
 
-    private Button setupButton(){
+    private Button setupButton() {
         Button button = new Button(ctx);
         button.setText(mButtonText);
 
@@ -207,9 +214,10 @@ public class AcsBox extends RelativeLayout {
     /**
      * Click Button
      */
-    private View.OnClickListener clickButton = new OnClickListener(){
-        @Override public void onClick(View view){
-            if(callback != null){
+    private View.OnClickListener clickButton = new OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if (callback != null) {
                 callback.onRetryng();
             }
         }
@@ -244,20 +252,20 @@ public class AcsBox extends RelativeLayout {
         this.mButtonText = buttonText;
     }
 
-    public void setLoading(String title){
+    public void setLoading(String title) {
         initViews();
         mLoading.setVisibility(View.VISIBLE);
-        if(title != null){
+        if (title != null) {
             mTitle.setText(title);
             mTitle.setVisibility(View.VISIBLE);
         }
     }
 
-    public void setLoading(){
+    public void setLoading() {
         setLoading(null);
     }
 
-    public void setValues(int icon, String title, String subtitle, boolean showButton){
+    public void setValues(int icon, String title, String subtitle, boolean showButton) {
         initViews();
         mBox.setBackgroundColor(mBgColor);
         mIcon.setVisibility(View.VISIBLE);
@@ -266,42 +274,42 @@ public class AcsBox extends RelativeLayout {
         mIcon.setImageResource(icon);
         mTitle.setText(title);
         mSubtitle.setText(subtitle);
-        if(showButton){
+        if (showButton) {
             mButton.setText(mButtonText);
             mButton.setVisibility(View.VISIBLE);
         }
     }
 
-    public void setEmpty(){
+    public void setEmpty() {
         setValues(mEmptyIcon, mEmptyTitle, mEmptySubtitle, false);
     }
 
-    public void setError(){
+    public void setError() {
         setValues(mErrorIcon, mErrorTitle, mErrorSubtitle, true);
     }
 
-    public void setError(OnRetryng callback){
+    public void setError(OnRetryng callback) {
         setError();
         onRetryng(callback);
     }
 
-    public void hide(){
-        if(mBox != null){
+    public void hide() {
+        if (mBox != null) {
             mBox.setVisibility(View.GONE);
         }
     }
 
-    public void onRetryng(OnRetryng callback){
+    public void onRetryng(OnRetryng callback) {
         this.callback = callback;
     }
 
     // Listener
-    public interface OnRetryng{
+    public interface OnRetryng {
         void onRetryng();
     }
 
     // Default string
-    private String defString(final String value, final String defValue){
+    private String defString(final String value, final String defValue) {
         return value == null || value.isEmpty() ? defValue : value;
     }
 

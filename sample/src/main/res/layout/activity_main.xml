@@ -10,7 +10,9 @@
     acs:loadingColor="#FFF"
     acs:iconSize="200dp"
     acs:iconColor="#f00"
-    acs:font="fonts/general.ttf">
+    acs:font="fonts/general.ttf"
+    acs:titleColor="#FFFFFF"
+    acs:errorSubtitle="Se ha producido un error con texto largo y este debe estar centrado de forma horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
