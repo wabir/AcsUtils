@@ -146,7 +146,7 @@ public class AcsLock extends RelativeLayout implements View.OnTouchListener {
 
         mTolerance              = (int) a.getDimension(R.styleable.AcsLock_al_tolerance, mTolerance);
 
-        mFont                   = a.getString(R.styleable.AcsLock_font);
+        mFont                   = a.getString(R.styleable.AcsLock_acs_font);
 
         if(mThumbTextOff != null && mThumbTextOn == null)
             mThumbTextOn = mThumbTextOff;

@@ -94,7 +94,7 @@ public class AcsBox extends RelativeLayout {
 
         mSpacing = (int) a.getDimension(R.styleable.AcsBox_spacing, mSpacing);
 
-        mFont = a.getString(R.styleable.AcsBox_font);
+        mFont = a.getString(R.styleable.AcsBox_acs_font);
 
         a.recycle();
     }

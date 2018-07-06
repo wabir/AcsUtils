@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <attr name="font" format="string"/>
+    <attr name="acs_font" format="string"/>
 
     <declare-styleable name="AcsBox">
         <attr name="bgColor" format="color"/>
@@ -29,7 +29,7 @@
 
         <attr name="spacing" format="dimension"/>
 
-        <attr name="font"/>
+        <attr name="acs_font"/>
     </declare-styleable>
 
     <declare-styleable name="AcsButton">
@@ -63,7 +63,7 @@
         <attr name="ab_iconMarginBottom" format="dimension"/>
         <attr name="ab_iconTop" format="boolean"/>
 
-        <attr name="font"/>
+        <attr name="acs_font"/>
     </declare-styleable>
 
     <declare-styleable name="AcsLock">
@@ -105,7 +105,7 @@
 
         <attr name="al_tolerance" format="dimension"/>
 
-        <attr name="font"/>
+        <attr name="acs_font"/>
     </declare-styleable>
 
     <declare-styleable name="AcsRating">

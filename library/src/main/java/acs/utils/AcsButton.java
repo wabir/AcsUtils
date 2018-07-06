@@ -115,7 +115,7 @@ public class AcsButton extends LinearLayout{
         mIconMarginBottom   = (int)a.getDimension(R.styleable.AcsButton_ab_iconMarginBottom, mIconMarginBottom);
         mIconTop            = a.getBoolean(R.styleable.AcsButton_ab_iconTop, mIconTop);
 
-        mFont               = a.getString(R.styleable.AcsButton_font);
+        mFont               = a.getString(R.styleable.AcsButton_acs_font);
 
         if(mTextAllCaps){
             mText           = mText.toUpperCase();

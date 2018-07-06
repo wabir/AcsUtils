@@ -10,7 +10,7 @@
     acs:loadingColor="#FFF"
     acs:iconSize="200dp"
     acs:iconColor="#f00"
-    acs:font="fonts/general.ttf"
+    acs:acs_font="fonts/general.ttf"
     acs:titleColor="#FFFFFF"
     acs:errorSubtitle="Se ha producido un error con texto largo y este debe estar centrado de forma horizontal">
 
@@ -51,7 +51,7 @@
                 acs:ab_icon="@drawable/ic_facebook"
                 acs:ab_iconSize="20dp"
                 acs:ab_iconTop="true"
-                acs:font="fonts/general.ttf"/>
+                acs:acs_font="fonts/general.ttf"/>
 
             <acs.utils.AcsButton
                 android:id="@+id/btn_circle_text"
@@ -128,7 +128,7 @@
             acs:ab_icon="@drawable/ic_facebook"
             acs:ab_iconSize="20dp"
             acs:ab_iconMarginRight="10dp"
-            acs:font="fonts/general.ttf"/>
+            acs:acs_font="fonts/general.ttf"/>
 
         <Button
             android:id="@+id/load"
@@ -162,7 +162,7 @@
             acs:al_thumbPaddingLeft="10dp"
             acs:al_thumbPaddingRight="10dp"
             acs:al_tolerance="10dp"
-            acs:font="fonts/general.ttf"/>
+            acs:acs_font="fonts/general.ttf"/>
 
         <acs.utils.AcsLock
             android:id="@+id/lock_nav"
