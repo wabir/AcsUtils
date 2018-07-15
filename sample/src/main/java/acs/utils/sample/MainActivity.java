@@ -10,6 +10,7 @@ import android.view.View;
 
 import java.util.Random;
 
+import acs.Toast;
 import acs.utils.AcsBox;
 import acs.utils.AcsButton;
 import acs.utils.AcsLock;
@@ -44,16 +45,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mLockStatus = (AcsLock) findViewById(R.id.lock_status);
         mLockNav = (AcsLock) findViewById(R.id.lock_nav);
 
-        mBox.onRetryng(new AcsBox.OnRetryng(){
-            @Override public void onRetryng(){
+        mBox.onRetryng(new AcsBox.OnRetryng() {
+            @Override public void onRetryng() {
                 mBox.setLoading();
-                mHandler.postDelayed(new Runnable(){
-                    @Override public void run(){
+                mHandler.postDelayed(new Runnable() {
+                    @Override public void run() {
                         mBox.hide();
                     }
                 }, 2000);
             }
         });
+
+        findViewById(R.id.toast_success).setOnClickListener(this);
+        findViewById(R.id.toast_warning).setOnClickListener(this);
+        findViewById(R.id.toast_danger).setOnClickListener(this);
+        findViewById(R.id.toast_info).setOnClickListener(this);
+        findViewById(R.id.toast_metal).setOnClickListener(this);
 
         findViewById(R.id.load).setOnClickListener(this);
         findViewById(R.id.toast).setOnClickListener(this);
@@ -66,15 +73,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtnDisabled.setEnabled(false);
         mBtnLeft.setOnClickListener(this);
 
-        mLockNav.onUnlock(new AcsLock.OnLock(){
-            @Override public void onLock(AcsLock v, boolean state){
-                if(!state) return;
+        mLockNav.onUnlock(new AcsLock.OnLock() {
+            @Override public void onLock(AcsLock v, boolean state) {
+                if (!state) return;
                 //AcsToast.show(MainActivity.this, "Locked: " + state);
                 //mLockNav.setEnabled(false);
                 mLockNav.setEnabled(false);
-                mHandler.postDelayed(new Runnable(){
-                    @Override public void run(){
-                        if(mLockNav.getBgColorOff() == Color.RED){
+                mHandler.postDelayed(new Runnable() {
+                    @Override public void run() {
+                        if (mLockNav.getBgColorOff() == Color.RED) {
                             mLockNav.setBgColorOff(Color.parseColor("#00BE3E"));
                             mLockNav.setThumbTextColorOff(Color.parseColor("#00BE3E"));
                             mLockNav.setThumbIconColorOff(Color.parseColor("#00BE3E"));
@@ -94,8 +101,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View view){
-        switch(view.getId()){
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.toast_success:
+                Toast.success(this, "Awesome toast contextual");
+                break;
+            case R.id.toast_warning:
+                Toast.warning(this, "Awesome toast contextual");
+                break;
+            case R.id.toast_danger:
+                Toast.danger(this, "Awesome toast contextual");
+                break;
+            case R.id.toast_info:
+                Toast.info(this, "Awesome toast contextual");
+                break;
+            case R.id.toast_metal:
+                Toast.metal(this, "Awesome toast contextual");
+                break;
             case R.id.box:
                 mBtnCircle.hideLoading();
                 mBtnLogin.hideLoading();
@@ -116,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_left:
                 mBtnLeft.setBgColor(Color.RED);
                 mBtnLeft.setIcon(R.drawable.ic_like);
-                mBtnLeft.setText("Text dynamically changed "+randomString());
+                mBtnLeft.setText("Text dynamically changed " + randomString());
                 mLockStatus.setState(!mLockStatus.isOn());
                 mLockNav.setState(!mLockNav.isOn());
                 mLockNav.setBgColorOff(Color.BLACK);
@@ -133,14 +155,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void showToast(){
+    private void showToast() {
         AcsToast.Settings stg = new AcsToast.Settings();
         stg.fast = false;
         stg.gravity = Gravity.BOTTOM;
-        stg.radius          = 5;
+        stg.radius = 5;
         stg.margin = 20;
         stg.padding = 10;
-        stg.icon            = R.drawable.ic_facebook;
+        stg.icon = R.drawable.ic_facebook;
         stg.iconMarginRight = 10;
         stg.borderWidth = 0;
         stg.borderColor = Color.BLACK;
@@ -164,17 +186,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         mBox.hide();
         super.onBackPressed();
     }
 
-    public static String randomString(){
+    public static String randomString() {
         Random generator = new Random();
         StringBuilder randomStringBuilder = new StringBuilder();
         int randomLength = generator.nextInt(30);
         char tempChar;
-        for (int i = 0; i < randomLength; i++){
+        for (int i = 0; i < randomLength; i++) {
             tempChar = (char) (generator.nextInt(96) + 32);
             randomStringBuilder.append(tempChar);
         }

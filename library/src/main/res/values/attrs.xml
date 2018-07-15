@@ -1,115 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <attr name="acs_font" format="string"/>
+    <attr name="acs_font" format="string" />
 
     <declare-styleable name="AcsBox">
-        <attr name="bgColor" format="color"/>
+        <attr name="bgColor" format="color" />
 
-        <attr name="loadingSize" format="dimension"/>
-        <attr name="loadingColor" format="color"/>
+        <attr name="loadingSize" format="dimension" />
+        <attr name="loadingColor" format="color" />
 
-        <attr name="iconSize" format="dimension"/>
-        <attr name="iconColor" format="color"/>
+        <attr name="iconSize" format="dimension" />
+        <attr name="iconColor" format="color" />
 
-        <attr name="titleSize" format="dimension"/>
-        <attr name="titleColor" format="color"/>
-        <attr name="subtitleSize" format="dimension"/>
-        <attr name="subtitleColor" format="color"/>
+        <attr name="titleSize" format="dimension" />
+        <attr name="titleColor" format="color" />
+        <attr name="subtitleSize" format="dimension" />
+        <attr name="subtitleColor" format="color" />
 
-        <attr name="emptyIcon" format="reference"/>
-        <attr name="emptyTitle" format="string"/>
-        <attr name="emptySubtitle" format="string"/>
+        <attr name="emptyIcon" format="reference" />
+        <attr name="emptyTitle" format="string" />
+        <attr name="emptySubtitle" format="string" />
 
-        <attr name="errorIcon" format="reference"/>
-        <attr name="errorTitle" format="string"/>
-        <attr name="errorSubtitle" format="string"/>
+        <attr name="errorIcon" format="reference" />
+        <attr name="errorTitle" format="string" />
+        <attr name="errorSubtitle" format="string" />
 
-        <attr name="buttonText" format="reference"/>
+        <attr name="buttonText" format="reference" />
 
-        <attr name="spacing" format="dimension"/>
+        <attr name="spacing" format="dimension" />
 
-        <attr name="acs_font"/>
+        <attr name="acs_font" />
     </declare-styleable>
 
     <declare-styleable name="AcsButton">
-        <attr name="ab_centered" format="boolean"/>
+        <attr name="ab_centered" format="boolean" />
 
-        <attr name="ab_bgColor" format="color"/>
-        <attr name="ab_bgColorFocus" format="color"/>
-        <attr name="ab_bgColorDisabled" format="color"/>
+        <attr name="ab_bgColor" format="color" />
+        <attr name="ab_bgColorFocus" format="color" />
+        <attr name="ab_bgColorDisabled" format="color" />
 
-        <attr name="ab_text" format="string"/>
-        <attr name="ab_textSize" format="dimension"/>
-        <attr name="ab_textBold" format="boolean"/>
-        <attr name="ab_textAllCaps" format="boolean"/>
-        <attr name="ab_textColor" format="color"/>
-        <attr name="ab_textSingleLine" format="boolean"/>
+        <attr name="ab_text" format="string" />
+        <attr name="ab_textSize" format="dimension" />
+        <attr name="ab_textBold" format="boolean" />
+        <attr name="ab_textAllCaps" format="boolean" />
+        <attr name="ab_textColor" format="color" />
+        <attr name="ab_textSingleLine" format="boolean" />
 
-        <attr name="ab_radius" format="dimension"/>
-        <attr name="ab_borderColor" format="color"/>
-        <attr name="ab_borderColorDisabled" format="color"/>
-        <attr name="ab_borderWidth" format="dimension"/>
+        <attr name="ab_radius" format="dimension" />
+        <attr name="ab_borderColor" format="color" />
+        <attr name="ab_borderColorDisabled" format="color" />
+        <attr name="ab_borderWidth" format="dimension" />
 
-        <attr name="ab_loadingSize" format="dimension"/>
-        <attr name="ab_loadingColor" format="color"/>
+        <attr name="ab_loadingSize" format="dimension" />
+        <attr name="ab_loadingColor" format="color" />
 
-        <attr name="ab_icon" format="reference"/>
-        <attr name="ab_iconSize" format="dimension"/>
-        <attr name="ab_iconColor" format="color"/>
-        <attr name="ab_iconMarginLeft" format="dimension"/>
-        <attr name="ab_iconMarginRight" format="dimension"/>
-        <attr name="ab_iconMarginTop" format="dimension"/>
-        <attr name="ab_iconMarginBottom" format="dimension"/>
-        <attr name="ab_iconTop" format="boolean"/>
+        <attr name="ab_icon" format="reference" />
+        <attr name="ab_iconSize" format="dimension" />
+        <attr name="ab_iconColor" format="color" />
+        <attr name="ab_iconMarginLeft" format="dimension" />
+        <attr name="ab_iconMarginRight" format="dimension" />
+        <attr name="ab_iconMarginTop" format="dimension" />
+        <attr name="ab_iconMarginBottom" format="dimension" />
+        <attr name="ab_iconTop" format="boolean" />
 
-        <attr name="acs_font"/>
+        <attr name="acs_font" />
     </declare-styleable>
 
     <declare-styleable name="AcsLock">
-        <attr name="al_radius" format="dimension"/>
-        <attr name="al_bgColorOff" format="color"/>
-        <attr name="al_bgColorOn" format="color"/>
+        <attr name="al_radius" format="dimension" />
+        <attr name="al_bgColorOff" format="color" />
+        <attr name="al_bgColorOn" format="color" />
 
-        <attr name="al_borderWidth" format="dimension"/>
-        <attr name="al_borderColorOff" format="color"/>
-        <attr name="al_borderColorOn" format="color"/>
+        <attr name="al_borderWidth" format="dimension" />
+        <attr name="al_borderColorOff" format="color" />
+        <attr name="al_borderColorOn" format="color" />
 
-        <attr name="al_thumbWidth" format="dimension"/>
-        <attr name="al_thumbRadius" format="dimension"/>
-        <attr name="al_thumbBgColorOff" format="color"/>
-        <attr name="al_thumbBgColorOn" format="color"/>
-        <attr name="al_thumbTextOff" format="string"/>
-        <attr name="al_thumbTextOn" format="string"/>
-        <attr name="al_thumbTextAllCaps" format="boolean"/>
-        <attr name="al_thumbTextSize" format="dimension"/>
-        <attr name="al_thumbTextColorOff" format="color"/>
-        <attr name="al_thumbTextColorOn" format="color"/>
-        <attr name="al_thumbIconOff" format="reference"/>
-        <attr name="al_thumbIconOn" format="reference"/>
-        <attr name="al_thumbIconSize" format="dimension"/>
-        <attr name="al_thumbIconSizeOn" format="dimension"/>
-        <attr name="al_thumbIconColorOff" format="color"/>
-        <attr name="al_thumbIconColorOn" format="color"/>
-        <attr name="al_thumbIconMrgLeftOff" format="dimension"/>
-        <attr name="al_thumbIconMrgLeftOn" format="dimension"/>
-        <attr name="al_thumbIconMrgRightOff" format="dimension"/>
-        <attr name="al_thumbIconMrgRightOn" format="dimension"/>
-        <attr name="al_thumbBorderWidth" format="dimension"/>
-        <attr name="al_thumbBorderColorOff" format="color"/>
-        <attr name="al_thumbBorderColorOn" format="color"/>
-        <attr name="al_thumbPaddingLeft" format="dimension"/>
-        <attr name="al_thumbPaddingTop" format="dimension"/>
-        <attr name="al_thumbPaddingRight" format="dimension"/>
-        <attr name="al_thumbPaddingBottom" format="dimension"/>
+        <attr name="al_thumbWidth" format="dimension" />
+        <attr name="al_thumbRadius" format="dimension" />
+        <attr name="al_thumbBgColorOff" format="color" />
+        <attr name="al_thumbBgColorOn" format="color" />
+        <attr name="al_thumbTextOff" format="string" />
+        <attr name="al_thumbTextOn" format="string" />
+        <attr name="al_thumbTextAllCaps" format="boolean" />
+        <attr name="al_thumbTextSize" format="dimension" />
+        <attr name="al_thumbTextColorOff" format="color" />
+        <attr name="al_thumbTextColorOn" format="color" />
+        <attr name="al_thumbIconOff" format="reference" />
+        <attr name="al_thumbIconOn" format="reference" />
+        <attr name="al_thumbIconSize" format="dimension" />
+        <attr name="al_thumbIconSizeOn" format="dimension" />
+        <attr name="al_thumbIconColorOff" format="color" />
+        <attr name="al_thumbIconColorOn" format="color" />
+        <attr name="al_thumbIconMrgLeftOff" format="dimension" />
+        <attr name="al_thumbIconMrgLeftOn" format="dimension" />
+        <attr name="al_thumbIconMrgRightOff" format="dimension" />
+        <attr name="al_thumbIconMrgRightOn" format="dimension" />
+        <attr name="al_thumbBorderWidth" format="dimension" />
+        <attr name="al_thumbBorderColorOff" format="color" />
+        <attr name="al_thumbBorderColorOn" format="color" />
+        <attr name="al_thumbPaddingLeft" format="dimension" />
+        <attr name="al_thumbPaddingTop" format="dimension" />
+        <attr name="al_thumbPaddingRight" format="dimension" />
+        <attr name="al_thumbPaddingBottom" format="dimension" />
 
-        <attr name="al_tolerance" format="dimension"/>
+        <attr name="al_tolerance" format="dimension" />
 
-        <attr name="acs_font"/>
+        <attr name="acs_font" />
     </declare-styleable>
 
     <declare-styleable name="AcsRating">
 
+    </declare-styleable>
+
+    <declare-styleable name="TextView">
+        <attr name="_bgColor" format="color" />
+        <attr name="_bgColorFocus" format="color" />
+        <attr name="_bgColorDisabled" format="color" />
+
+        <attr name="_radius" format="dimension" />
+        <attr name="_borderColor" format="color" />
+        <attr name="_borderColorDisabled" format="color" />
+        <attr name="_borderWidth" format="dimension" />
+
+        <attr name="_font" format="string" />
     </declare-styleable>
 
 </resources>

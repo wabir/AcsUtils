@@ -1,0 +1,24 @@
+<resources>
+
+    <dimen name="mrg_ms">2dp</dimen>
+    <dimen name="mrg_fs">4dp</dimen>
+    <dimen name="mrg_xs">6dp</dimen>
+    <dimen name="mrg_sm">10dp</dimen>
+    <dimen name="mrg_md">16dp</dimen>
+    <dimen name="mrg_lg">22dp</dimen>
+    <dimen name="mrg_xl">26dp</dimen>
+    <dimen name="mrg_fl">36dp</dimen>
+    <dimen name="mrg_ml">50dp</dimen>
+
+    <dimen name="txt_ms">8sp</dimen>
+    <dimen name="txt_fs">10sp</dimen>
+    <dimen name="txt_xs">12sp</dimen>
+    <dimen name="txt_sm">14sp</dimen>
+    <dimen name="txt_sd">16sp</dimen>
+    <dimen name="txt_md">18sp</dimen>
+    <dimen name="txt_lg">22sp</dimen>
+    <dimen name="txt_xl">26sp</dimen>
+    <dimen name="txt_fl">34sp</dimen>
+    <dimen name="txt_ml">48sp</dimen>
+
+</resources>
