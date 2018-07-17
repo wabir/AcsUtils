@@ -23,7 +23,7 @@ public class AcsToast{
      * Settings
      */
     public static class Settings{
-        public boolean fast         = true;
+        public boolean fast         = false;
         public int gravity          = Gravity.TOP;
         public int width            = -1; // MATCH_PARENT
         public int height           = -2; // WRAP_CONTENT

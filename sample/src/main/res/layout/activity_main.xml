@@ -4,7 +4,8 @@
     android:id="@+id/box"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF"
+    android:background="#333"
+    android:focusableInTouchMode="true"
     android:orientation="vertical"
     acs:acs_font="fonts/general.ttf"
     acs:bgColor="#333"
@@ -20,11 +21,48 @@
         android:orientation="vertical"
         android:padding="10dp">
 
+        <acs.Frame
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/mrg_lg"
+            acs:_bgColor="@color/_info"
+            acs:_bgColorFocus="@color/_warning"
+            acs:_borderColor="@color/white"
+            acs:_borderWidth="2dp"
+            acs:_radius="4dp">
+
+            <acs.Field
+                android:id="@+id/field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/mrg_sm"
+                android:paddingRight="@dimen/mrg_sm"
+                android:textSize="@dimen/txt_sm"
+                acs:_bgColor="#555"
+                acs:_bgColorFocus="#999"
+                acs:_font="fonts/general.ttf"
+                acs:_radius="4dp" />
+
+            <acs.Text
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/field"
+                android:text="flota" />
+
+        </acs.Frame>
+
+        <acs.Field
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mrg_sm" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <acs.TextView
+            <acs.Text
                 android:id="@+id/toast_success"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -43,7 +81,7 @@
                 acs:_font="fonts/general.ttf"
                 acs:_radius="2dp" />
 
-            <acs.TextView
+            <acs.Text
                 android:id="@+id/toast_warning"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -62,7 +100,7 @@
                 acs:_font="fonts/general.ttf"
                 acs:_radius="2dp" />
 
-            <acs.TextView
+            <acs.Text
                 android:id="@+id/toast_danger"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -81,7 +119,7 @@
                 acs:_font="fonts/general.ttf"
                 acs:_radius="2dp" />
 
-            <acs.TextView
+            <acs.Text
                 android:id="@+id/toast_info"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -100,7 +138,7 @@
                 acs:_font="fonts/general.ttf"
                 acs:_radius="2dp" />
 
-            <acs.TextView
+            <acs.Text
                 android:id="@+id/toast_metal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

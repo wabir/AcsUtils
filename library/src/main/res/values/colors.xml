@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="transparent">#00000000</color>
+
     <color name="_success">#34bfa3</color>
     <color name="_danger">#f4516c</color>
     <color name="_warning">#ffb822</color>

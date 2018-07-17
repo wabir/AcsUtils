@@ -48,4 +48,16 @@ public class Toast {
         AcsToast.show(ctx, ctx.getString(res_text, args), ctx.getResources().getColor(R.color._metal));
     }
 
+
+    /**
+     * Mostrar un Toast
+     */
+    public static void show(Context ctx, String message) {
+        android.widget.Toast.makeText(ctx, message, android.widget.Toast.LENGTH_LONG).show();
+    }
+
+    public static void show(Context ctx, int res_message, Object... args) {
+        show(ctx, ctx.getString(res_message, args));
+    }
+
 }
