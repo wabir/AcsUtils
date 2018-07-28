@@ -40,7 +40,7 @@
                 android:paddingLeft="@dimen/mrg_sm"
                 android:paddingRight="@dimen/mrg_sm"
                 android:textSize="@dimen/txt_sm"
-                acs:_bgColor="#555"
+                acs:_bgColor="@color/white"
                 acs:_bgColorFocus="#999"
                 acs:_font="fonts/general.ttf"
                 acs:_radius="4dp" />

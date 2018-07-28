@@ -14,7 +14,7 @@ public class Frame extends RelativeLayout {
 
     private Context ctx;
 
-    private static final int COLOR_NONE = -1;
+    private static final int COLOR_NONE = -1100;
 
     private int mBgColor;
     private int mBgColorFocus;
@@ -134,6 +134,11 @@ public class Frame extends RelativeLayout {
     public void setBorderColorDisabled(int color) {
         mBorderColorDisabled = color;
         setupBackground();
+    }
+
+    //Obtener valores
+    public int getBgColor() {
+        return mBgColor;
     }
 
 }

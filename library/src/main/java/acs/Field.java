@@ -2,11 +2,13 @@ package acs;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.EditText;
 
 import acs.utils.Acs;
@@ -16,7 +18,7 @@ public class Field extends EditText {
 
     private Context ctx;
 
-    private static final int COLOR_NONE = -1;
+    private static final int COLOR_NONE = -1100;
 
     private int mBgColor;
     private int mBgColorFocus;
@@ -139,6 +141,11 @@ public class Field extends EditText {
     public void setBorderColorDisabled(int color) {
         mBorderColorDisabled = color;
         setupBackground();
+    }
+
+    //Obtener valores
+    public int getBgColor() {
+        return mBgColor;
     }
 
     /**
