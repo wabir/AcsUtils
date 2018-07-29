@@ -4,7 +4,10 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -13,8 +16,6 @@ import android.widget.TextView;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import acs.Toast;
 
 public class Acs {
 
@@ -138,6 +139,41 @@ public class Acs {
      */
     public static boolean isEmpty(String str) {
         return str == null || str.trim().isEmpty();
+    }
+
+    // tiempo en segundos
+    public static long time() {
+        return System.currentTimeMillis() / 1000;
+    }
+
+
+    /**
+     * Obtener codigo ISO de pais
+     */
+    public static String getISO(Context ctx, String defaultValue) {
+        TelephonyManager tm = (TelephonyManager) ctx.getSystemService(Context.TELEPHONY_SERVICE);
+        String iso = tm != null ? tm.getNetworkCountryIso() : "";
+        return iso == null || iso.isEmpty() ? defaultValue : iso.toUpperCase();
+    }
+
+    public static String getISO(Context ctx) {
+        return getISO(ctx, "US");
+    }
+
+
+    /**
+     * Abrir PlayStore con un paquete
+     */
+    public static void openPlayStore(Context ctx, String app) {
+        try {
+            ctx.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + app)));
+        } catch (android.content.ActivityNotFoundException anfe) {
+            ctx.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + app)));
+        }
+    }
+
+    public static void openPlayStore(Context ctx) {
+        openPlayStore(ctx, ctx.getPackageName());
     }
 
 }

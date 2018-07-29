@@ -2,17 +2,14 @@ package acs;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
-import acs.utils.Acs;
 import acs.utils.R;
 
-public class Text extends TextView {
+public class View extends android.view.View {
 
     private static final int COLOR_NONE = -1100;
 
@@ -27,32 +24,30 @@ public class Text extends TextView {
     private int mBorderWidthFocus;
     private int mRadius;
 
-    public Text(Context context) {
+    public View(Context context) {
         super(context);
         this.init();
     }
 
-    public Text(Context context, AttributeSet attrs) {
+    public View(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.initAttrs(attrs);
         this.init();
     }
 
     private void initAttrs(AttributeSet attrs) {
-        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.Text);
+        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.View);
 
-        mBgColor = a.getColor(R.styleable.Text__bgColor, COLOR_NONE);
-        mBgColorFocus = a.getColor(R.styleable.Text__bgColorFocus, COLOR_NONE);
-        mBgColorDisabled = a.getColor(R.styleable.Text__bgColorDisabled, COLOR_NONE);
+        mBgColor = a.getColor(R.styleable.View__bgColor, COLOR_NONE);
+        mBgColorFocus = a.getColor(R.styleable.View__bgColorFocus, COLOR_NONE);
+        mBgColorDisabled = a.getColor(R.styleable.View__bgColorDisabled, COLOR_NONE);
 
-        mRadius = (int) a.getDimension(R.styleable.Text__radius, 0);
-        mBorderWidth = (int) a.getDimension(R.styleable.Text__borderWidth, 0);
-        mBorderWidthFocus = (int) a.getDimension(R.styleable.Text__borderWidthFocus, 0);
-        mBorderColor = a.getColor(R.styleable.Text__borderColor, COLOR_NONE);
-        mBorderColorFocus = a.getColor(R.styleable.Text__borderColorFocus, COLOR_NONE);
-        mBorderColorDisabled = a.getColor(R.styleable.Text__borderColorDisabled, COLOR_NONE);
-
-        Acs.setFont(getContext(), this, a.getString(R.styleable.Text__font), Typeface.NORMAL);
+        mRadius = (int) a.getDimension(R.styleable.View__radius, 0);
+        mBorderWidth = (int) a.getDimension(R.styleable.View__borderWidth, 0);
+        mBorderWidthFocus = (int) a.getDimension(R.styleable.View__borderWidthFocus, 0);
+        mBorderColor = a.getColor(R.styleable.View__borderColor, COLOR_NONE);
+        mBorderColorFocus = a.getColor(R.styleable.View__borderColorFocus, COLOR_NONE);
+        mBorderColorDisabled = a.getColor(R.styleable.View__borderColorDisabled, COLOR_NONE);
 
         a.recycle();
     }
