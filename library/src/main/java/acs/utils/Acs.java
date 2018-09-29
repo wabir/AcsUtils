@@ -153,6 +153,13 @@ public class Acs {
         return str == null || str.trim().isEmpty();
     }
 
+    /**
+     * Saber si una cadena esta vacia
+     */
+    public static boolean equals(String str1, String str2) {
+        return str1 != null && str1.equals(str2);
+    }
+
     // tiempo en segundos
     public static long time() {
         return System.currentTimeMillis() / 1000;
