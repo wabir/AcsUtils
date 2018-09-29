@@ -9,6 +9,7 @@ import android.view.View;
 
 import java.util.Random;
 
+import acs.Box;
 import acs.Toast;
 import acs.utils.AcsBox;
 import acs.utils.AcsButton;
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Handler mHandler = new Handler();
 
-    private AcsBox mBox;
+    private Box mBox;
     private AcsButton mBtnCircle;
     private AcsButton mBtnLogin;
     private AcsButton mBtnCircleText;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mBox = (AcsBox) findViewById(R.id.box);
+        mBox = (Box) findViewById(R.id.box);
         mBtnCircle = (AcsButton) findViewById(R.id.btn_circle);
         mBtnLogin = (AcsButton) findViewById(R.id.btn_login);
         mBtnCircleText = (AcsButton) findViewById(R.id.btn_circle_text);
@@ -44,8 +45,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mLockStatus = (AcsLock) findViewById(R.id.lock_status);
         mLockNav = (AcsLock) findViewById(R.id.lock_nav);
 
-        mBox.onRetryng(new AcsBox.OnRetryng() {
-            @Override public void onRetryng() {
+        mBox.onClickEmpty(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+                mBox.setLoading("Cargando...");
+                mHandler.postDelayed(new Runnable() {
+                    @Override public void run() {
+                        mBox.setError();
+                    }
+                }, 2000);
+            }
+        });
+        mBox.onClickError(new View.OnClickListener() {
+            @Override public void onClick(View view) {
                 mBox.setLoading();
                 mHandler.postDelayed(new Runnable() {
                     @Override public void run() {
@@ -97,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }, 2000);
             }
         });
+
     }
 
     @Override
@@ -146,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mLockNav.setThumbIconColorOff(Color.BLACK);
                 break;
             case R.id.load:
-                mBox.setError();
+                mBox.setEmpty();
                 break;
             case R.id.toast:
                 showToast();

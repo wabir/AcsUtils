@@ -1,12 +1,16 @@
 package acs;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.TextView;
 
 import acs.utils.Acs;
@@ -52,7 +56,7 @@ public class Text extends TextView {
         mBorderColorFocus = a.getColor(R.styleable.Text__borderColorFocus, COLOR_NONE);
         mBorderColorDisabled = a.getColor(R.styleable.Text__borderColorDisabled, COLOR_NONE);
 
-        Acs.setFont(getContext(), this, a.getString(R.styleable.Text__font), Typeface.NORMAL);
+        Acs.setFont(getContext(), this, a.getString(R.styleable.Text__font), getTypeface().getStyle());
 
         a.recycle();
     }
@@ -67,8 +71,21 @@ public class Text extends TextView {
         setupBackground();
     }
 
+    @Override public void setOnClickListener(@Nullable OnClickListener l) {
+        super.setOnClickListener(l);
+        setupBackground();
+    }
+
     private void setupBackground() {
         if (mBgColor == COLOR_NONE) return;
+
+        if (mBgColorFocus == COLOR_NONE) {
+            mBgColorFocus = mBgColor;
+        }
+
+        if (mBorderColor != COLOR_NONE && mBorderColorFocus == COLOR_NONE) {
+            mBorderColorFocus = mBorderColor;
+        }
 
         // Default Drawable
         GradientDrawable _default = new GradientDrawable();
@@ -81,9 +98,8 @@ public class Text extends TextView {
         //Focus Drawable
         GradientDrawable _focus = new GradientDrawable();
         _focus.setCornerRadius(mRadius);
-        _focus.setColor(mBgColorFocus == COLOR_NONE ? mBgColor : mBgColorFocus);
-        _focus.setStroke(mBorderWidthFocus > 0 ? mBorderWidthFocus : mBorderWidth,
-                mBorderColorFocus == COLOR_NONE ? mBorderColor : mBorderColorFocus);
+        _focus.setColor(mBgColorFocus);
+        _focus.setStroke(mBorderWidthFocus > 0 ? mBorderWidthFocus : mBorderWidth, mBorderColorFocus);
 
         // Disabled Drawable
         GradientDrawable _disabled = new GradientDrawable();
@@ -92,6 +108,19 @@ public class Text extends TextView {
         _disabled.setStroke(mBorderWidth, mBorderColorDisabled == COLOR_NONE ? mBorderColor : mBorderColorDisabled);
 
         this.setBackground(getBG(_default, _focus, _disabled));
+
+        if (isClickable()) {
+            this.setTextColor(new ColorStateList(
+                    new int[][]{
+                            new int[]{android.R.attr.state_pressed},
+                            new int[]{}
+                    },
+                    new int[]{
+                            Acs.alphaColor(getCurrentTextColor(), 0.5f),
+                            getCurrentTextColor()
+                    }
+            ));
+        }
     }
 
     private Drawable getBG(Drawable _default, Drawable _focus, Drawable _disabled) {

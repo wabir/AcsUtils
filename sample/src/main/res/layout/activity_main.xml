@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<acs.utils.AcsBox xmlns:android="http://schemas.android.com/apk/res/android"
+<acs.Box xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:acs="http://schemas.android.com/apk/res-auto"
     android:id="@+id/box"
     android:layout_width="match_parent"
@@ -7,332 +7,316 @@
     android:background="#333"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
-    acs:acs_font="fonts/general.ttf"
-    acs:bgColor="#333"
-    acs:errorSubtitle="Se ha producido un error con texto largo y este debe estar centrado de forma horizontal"
-    acs:iconColor="#f00"
-    acs:iconSize="200dp"
-    acs:loadingColor="#FFF"
-    acs:titleColor="#FFFFFF">
+    acs:emptyButton="Explorar">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_height="match_parent">
 
-        <acs.Frame
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="@dimen/mrg_lg"
-            acs:_bgColor="@color/_info"
-            acs:_bgColorFocus="@color/_warning"
-            acs:_borderColor="@color/white"
-            acs:_borderWidth="2dp"
-            acs:_radius="4dp">
+            android:orientation="vertical"
+            android:padding="10dp">
 
-            <acs.Field
-                android:id="@+id/field"
+            <acs.Frame
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/mrg_sm"
-                android:paddingRight="@dimen/mrg_sm"
-                android:textSize="@dimen/txt_sm"
-                acs:_bgColor="@color/white"
-                acs:_bgColorFocus="#999"
-                acs:_font="fonts/general.ttf"
-                acs:_radius="4dp" />
-
-            <acs.Text
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/field"
-                android:text="flota" />
-
-        </acs.Frame>
-
-        <acs.Field
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/mrg_sm" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <acs.Text
-                android:id="@+id/toast_success"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/mrg_xs"
-                android:layout_weight="1"
-                android:elevation="2dp"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
-                android:text="success"
-                android:textColor="@color/white"
-                android:textSize="@dimen/txt_sm"
-                acs:_bgColor="@color/_success"
-                acs:_bgColorFocus="#999"
-                acs:_borderColor="#555"
-                acs:_borderWidth="1dp"
-                acs:_font="fonts/general.ttf"
-                acs:_radius="2dp" />
-
-            <acs.Text
-                android:id="@+id/toast_warning"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/mrg_xs"
-                android:layout_weight="1"
-                android:elevation="2dp"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
-                android:text="warning"
-                android:textColor="@color/white"
-                android:textSize="@dimen/txt_sm"
-                acs:_bgColor="@color/_warning"
-                acs:_bgColorFocus="#999"
-                acs:_borderColor="#555"
-                acs:_borderWidth="1dp"
-                acs:_font="fonts/general.ttf"
-                acs:_radius="2dp" />
-
-            <acs.Text
-                android:id="@+id/toast_danger"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/mrg_xs"
-                android:layout_weight="1"
-                android:elevation="2dp"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
-                android:text="danger"
-                android:textColor="@color/white"
-                android:textSize="@dimen/txt_sm"
-                acs:_bgColor="@color/_danger"
-                acs:_bgColorFocus="#999"
-                acs:_borderColor="#555"
-                acs:_borderWidth="1dp"
-                acs:_font="fonts/general.ttf"
-                acs:_radius="2dp" />
-
-            <acs.Text
-                android:id="@+id/toast_info"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/mrg_xs"
-                android:layout_weight="1"
-                android:elevation="2dp"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
-                android:text="info"
-                android:textColor="@color/white"
-                android:textSize="@dimen/txt_sm"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="@dimen/mrg_lg"
                 acs:_bgColor="@color/_info"
-                acs:_bgColorFocus="#999"
-                acs:_borderColor="#555"
-                acs:_borderWidth="1dp"
-                acs:_font="fonts/general.ttf"
-                acs:_radius="2dp" />
+                acs:_bgColorFocus="@color/_warning"
+                acs:_borderColor="@color/white"
+                acs:_borderWidth="2dp"
+                acs:_radius="4dp">
 
-            <acs.Text
-                android:id="@+id/toast_metal"
-                android:layout_width="0dp"
+                <acs.Field
+                    android:id="@+id/field"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/mrg_sm"
+                    android:paddingRight="@dimen/mrg_sm"
+                    android:textSize="@dimen/txt_sm"
+                    acs:_bgColor="@color/transparent"
+                    acs:_borderColor="@color/white"
+                    acs:_borderColorFocus="@color/_danger"
+                    acs:_borderWidth="1dp"
+                    acs:_borderWidthFocus="2dp"
+                    acs:_font="fonts/general.ttf"
+                    acs:_radius="4dp" />
+
+                <acs.Text
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/field"
+                    android:text="flota" />
+
+            </acs.Frame>
+
+            <acs.Field
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/mrg_xs"
-                android:layout_weight="1"
-                android:elevation="2dp"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
-                android:text="metal"
-                android:textColor="@color/white"
-                android:textSize="@dimen/txt_sm"
-                acs:_bgColor="@color/_metal"
-                acs:_bgColorFocus="#999"
-                acs:_borderColor="#555"
-                acs:_borderWidth="1dp"
-                acs:_font="fonts/general.ttf"
-                acs:_radius="2dp" />
+                android:layout_marginTop="@dimen/mrg_sm" />
 
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+                <acs.Text
+                    android:id="@+id/toast_success"
+                    android:layout_width="0dp"
+                    android:layout_height="22dp"
+                    android:layout_margin="@dimen/mrg_xs"
+                    android:layout_weight="1"
+                    android:elevation="2dp"
+                    android:gravity="center"
+                    android:text="success"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt_sm"
+                    acs:_bgColor="@color/_success"
+                    acs:_font="fonts/general.ttf"
+                    acs:_radius="11dp" />
+
+                <acs.Text
+                    android:id="@+id/toast_warning"
+                    android:layout_width="0dp"
+                    android:layout_height="22dp"
+                    android:layout_margin="@dimen/mrg_xs"
+                    android:layout_weight="1"
+                    android:elevation="2dp"
+                    android:gravity="center"
+                    android:text="warning"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt_sm"
+                    acs:_bgColor="@color/_warning"
+                    acs:_font="fonts/general.ttf"
+                    acs:_radius="11dp" />
+
+                <acs.Text
+                    android:id="@+id/toast_danger"
+                    android:layout_width="0dp"
+                    android:layout_height="22dp"
+                    android:layout_margin="@dimen/mrg_xs"
+                    android:layout_weight="1"
+                    android:elevation="2dp"
+                    android:gravity="center"
+                    android:text="danger"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt_sm"
+                    acs:_bgColor="@color/_danger"
+                    acs:_font="fonts/general.ttf"
+                    acs:_radius="11dp" />
+
+                <acs.Text
+                    android:id="@+id/toast_info"
+                    android:layout_width="0dp"
+                    android:layout_height="22dp"
+                    android:layout_margin="@dimen/mrg_xs"
+                    android:layout_weight="1"
+                    android:elevation="2dp"
+                    android:gravity="center"
+                    android:text="info"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt_sm"
+                    acs:_bgColor="@color/_info"
+                    acs:_font="fonts/general.ttf"
+                    acs:_radius="11dp" />
+
+                <acs.Text
+                    android:id="@+id/toast_metal"
+                    android:layout_width="0dp"
+                    android:layout_height="22dp"
+                    android:layout_margin="@dimen/mrg_xs"
+                    android:layout_weight="1"
+                    android:elevation="2dp"
+                    android:gravity="center"
+                    android:text="metal"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt_sm"
+                    acs:_bgColor="@color/_metal"
+                    acs:_font="fonts/general.ttf"
+                    acs:_radius="11dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <acs.utils.AcsButton
+                    android:id="@+id/btn_circle"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    acs:ab_bgColor="#3FA75A"
+                    acs:ab_bgColorFocus="#399651"
+                    acs:ab_borderColor="#399651"
+                    acs:ab_borderWidth="2dp"
+                    acs:ab_icon="@drawable/ic_like"
+                    acs:ab_iconSize="20dp"
+                    acs:ab_radius="25dp" />
+
+                <acs.utils.AcsButton
+                    android:id="@+id/btn_login"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    acs:ab_bgColor="#39579B"
+                    acs:ab_bgColorFocus="#193574"
+                    acs:ab_icon="@drawable/ic_facebook"
+                    acs:ab_iconSize="20dp"
+                    acs:ab_iconTop="true"
+                    acs:ab_radius="5dp"
+                    acs:ab_text="Login"
+                    acs:ab_textBold="true"
+                    acs:acs_font="fonts/general.ttf" />
+
+                <acs.utils.AcsButton
+                    android:id="@+id/btn_circle_text"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="5dp"
+                    android:elevation="3dp"
+                    acs:ab_bgColor="#3FA75A"
+                    acs:ab_bgColorDisabled="#00F"
+                    acs:ab_bgColorFocus="#000"
+                    acs:ab_borderColor="#FFFFFF"
+                    acs:ab_borderColorDisabled="#F00"
+                    acs:ab_borderWidth="4dp"
+                    acs:ab_icon="@drawable/ic_car"
+                    acs:ab_iconColor="#FFFFFF"
+                    acs:ab_iconMarginBottom="0dp"
+                    acs:ab_iconSize="35dp"
+                    acs:ab_iconTop="true"
+                    acs:ab_radius="60dp"
+                    acs:ab_text="Normal"
+                    acs:ab_textAllCaps="true"
+                    acs:ab_textSize="9dp" />
+
+            </LinearLayout>
 
             <acs.utils.AcsButton
-                android:id="@+id/btn_circle"
-                android:layout_width="50dp"
+                android:id="@+id/btn_ligth"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
-                acs:ab_bgColor="#3FA75A"
-                acs:ab_bgColorFocus="#399651"
-                acs:ab_borderColor="#399651"
-                acs:ab_borderWidth="2dp"
-                acs:ab_icon="@drawable/ic_like"
+                android:layout_marginTop="10dp"
+                acs:ab_bgColor="#F6F7F9"
+                acs:ab_bgColorFocus="#E9EBEE"
+                acs:ab_borderColor="#CED0D4"
+                acs:ab_borderWidth="1dp"
+                acs:ab_icon="@drawable/ic_facebook"
+                acs:ab_iconColor="#575757"
+                acs:ab_iconMarginRight="10dp"
                 acs:ab_iconSize="20dp"
-                acs:ab_radius="25dp" />
+                acs:ab_loadingColor="#39579B"
+                acs:ab_radius="5dp"
+                acs:ab_text="Login with Facebook for more lines and text large"
+                acs:ab_textBold="true"
+                acs:ab_textColor="#575757"
+                acs:ab_textSingleLine="true" />
 
             <acs.utils.AcsButton
-                android:id="@+id/btn_login"
-                android:layout_width="0dp"
+                android:id="@+id/btn_disabled"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
+                android:layout_marginTop="10dp"
                 acs:ab_bgColor="#39579B"
                 acs:ab_bgColorFocus="#193574"
                 acs:ab_icon="@drawable/ic_facebook"
+                acs:ab_iconMarginRight="10dp"
                 acs:ab_iconSize="20dp"
-                acs:ab_iconTop="true"
-                acs:ab_radius="5dp"
-                acs:ab_text="Login"
-                acs:ab_textBold="true"
-                acs:acs_font="fonts/general.ttf" />
+                acs:ab_radius="25dp"
+                acs:ab_text="Disabled"
+                acs:ab_textBold="true" />
 
             <acs.utils.AcsButton
-                android:id="@+id/btn_circle_text"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_margin="5dp"
-                android:elevation="3dp"
-                acs:ab_bgColor="#3FA75A"
-                acs:ab_bgColorDisabled="#00F"
-                acs:ab_bgColorFocus="#000"
-                acs:ab_borderColor="#FFFFFF"
-                acs:ab_borderColorDisabled="#F00"
-                acs:ab_borderWidth="4dp"
-                acs:ab_icon="@drawable/ic_car"
-                acs:ab_iconColor="#FFFFFF"
-                acs:ab_iconMarginBottom="0dp"
-                acs:ab_iconSize="35dp"
-                acs:ab_iconTop="true"
-                acs:ab_radius="60dp"
-                acs:ab_text="Normal"
+                android:id="@+id/btn_left"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                acs:ab_bgColor="#39579B"
+                acs:ab_bgColorFocus="#193574"
+                acs:ab_centered="false"
+                acs:ab_icon="@drawable/ic_facebook"
+                acs:ab_iconMarginRight="10dp"
+                acs:ab_iconSize="20dp"
+                acs:ab_radius="5dp"
+                acs:ab_text="Aligned left wing and surpassing the maximum of lines to prove"
                 acs:ab_textAllCaps="true"
-                acs:ab_textSize="9dp" />
+                acs:ab_textSingleLine="true"
+                acs:acs_font="fonts/general.ttf" />
+
+            <Button
+                android:id="@+id/load"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Load Content" />
+
+            <Button
+                android:id="@+id/toast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Show Toast" />
+
+            <acs.utils.AcsLock
+                android:id="@+id/lock_status"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:padding="6dp"
+                acs:acs_font="fonts/general.ttf"
+                acs:al_borderColorOff="#000"
+                acs:al_borderWidth="6dp"
+                acs:al_radius="25dp"
+                acs:al_thumbBgColorOff="#FFF"
+                acs:al_thumbBorderColorOff="#F00"
+                acs:al_thumbBorderWidth="2dp"
+                acs:al_thumbPaddingLeft="10dp"
+                acs:al_thumbPaddingRight="10dp"
+                acs:al_thumbTextColorOff="#000"
+                acs:al_thumbTextColorOn="#00F"
+                acs:al_thumbTextOff="Offline"
+                acs:al_thumbTextOn="Online"
+                acs:al_thumbWidth="100dp"
+                acs:al_tolerance="10dp" />
+
+            <acs.utils.AcsLock
+                android:id="@+id/lock_nav"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:elevation="1dp"
+                android:padding="3dp"
+                acs:al_bgColorOff="#00BE3E"
+                acs:al_bgColorOn="#777"
+                acs:al_radius="20dp"
+                acs:al_thumbBgColorOff="#FFF"
+                acs:al_thumbBgColorOn="#00FFFFFF"
+                acs:al_thumbIconColorOff="#00BE3E"
+                acs:al_thumbIconColorOn="#FFF"
+                acs:al_thumbIconMrgLeftOff="10dp"
+                acs:al_thumbIconMrgRightOff="20dp"
+                acs:al_thumbIconMrgRightOn="0dp"
+                acs:al_thumbIconOff="@drawable/ic_chevron_right"
+                acs:al_thumbIconOn="@drawable/ic_loading"
+                acs:al_thumbIconSize="10dp"
+                acs:al_thumbIconSizeOn="36dp"
+                acs:al_thumbPaddingLeft="20dp"
+                acs:al_thumbPaddingRight="0dp"
+                acs:al_thumbTextColorOff="#00BE3E"
+                acs:al_thumbTextColorOn="#FFF"
+                acs:al_thumbTextOff="Start"
+                acs:al_thumbTextOn=""
+                acs:al_thumbTextSize="12sp" />
 
         </LinearLayout>
 
-        <acs.utils.AcsButton
-            android:id="@+id/btn_ligth"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            acs:ab_bgColor="#F6F7F9"
-            acs:ab_bgColorFocus="#E9EBEE"
-            acs:ab_borderColor="#CED0D4"
-            acs:ab_borderWidth="1dp"
-            acs:ab_icon="@drawable/ic_facebook"
-            acs:ab_iconColor="#575757"
-            acs:ab_iconMarginRight="10dp"
-            acs:ab_iconSize="20dp"
-            acs:ab_loadingColor="#39579B"
-            acs:ab_radius="5dp"
-            acs:ab_text="Login with Facebook for more lines and text large"
-            acs:ab_textBold="true"
-            acs:ab_textColor="#575757"
-            acs:ab_textSingleLine="true" />
+    </ScrollView>
 
-        <acs.utils.AcsButton
-            android:id="@+id/btn_disabled"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            acs:ab_bgColor="#39579B"
-            acs:ab_bgColorFocus="#193574"
-            acs:ab_icon="@drawable/ic_facebook"
-            acs:ab_iconMarginRight="10dp"
-            acs:ab_iconSize="20dp"
-            acs:ab_radius="25dp"
-            acs:ab_text="Disabled"
-            acs:ab_textBold="true" />
-
-        <acs.utils.AcsButton
-            android:id="@+id/btn_left"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            acs:ab_bgColor="#39579B"
-            acs:ab_bgColorFocus="#193574"
-            acs:ab_centered="false"
-            acs:ab_icon="@drawable/ic_facebook"
-            acs:ab_iconMarginRight="10dp"
-            acs:ab_iconSize="20dp"
-            acs:ab_radius="5dp"
-            acs:ab_text="Aligned left wing and surpassing the maximum of lines to prove"
-            acs:ab_textAllCaps="true"
-            acs:ab_textSingleLine="true"
-            acs:acs_font="fonts/general.ttf" />
-
-        <Button
-            android:id="@+id/load"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Load Content" />
-
-        <Button
-            android:id="@+id/toast"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Show Toast" />
-
-        <acs.utils.AcsLock
-            android:id="@+id/lock_status"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:padding="6dp"
-            acs:acs_font="fonts/general.ttf"
-            acs:al_borderColorOff="#000"
-            acs:al_borderWidth="6dp"
-            acs:al_radius="25dp"
-            acs:al_thumbBgColorOff="#FFF"
-            acs:al_thumbBorderColorOff="#F00"
-            acs:al_thumbBorderWidth="2dp"
-            acs:al_thumbPaddingLeft="10dp"
-            acs:al_thumbPaddingRight="10dp"
-            acs:al_thumbTextColorOff="#000"
-            acs:al_thumbTextColorOn="#00F"
-            acs:al_thumbTextOff="Offline"
-            acs:al_thumbTextOn="Online"
-            acs:al_thumbWidth="100dp"
-            acs:al_tolerance="10dp" />
-
-        <acs.utils.AcsLock
-            android:id="@+id/lock_nav"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:elevation="1dp"
-            android:padding="3dp"
-            acs:al_bgColorOff="#00BE3E"
-            acs:al_bgColorOn="#777"
-            acs:al_radius="20dp"
-            acs:al_thumbBgColorOff="#FFF"
-            acs:al_thumbBgColorOn="#00FFFFFF"
-            acs:al_thumbIconColorOff="#00BE3E"
-            acs:al_thumbIconColorOn="#FFF"
-            acs:al_thumbIconMrgLeftOff="10dp"
-            acs:al_thumbIconMrgRightOff="20dp"
-            acs:al_thumbIconMrgRightOn="0dp"
-            acs:al_thumbIconOff="@drawable/ic_chevron_right"
-            acs:al_thumbIconOn="@drawable/ic_loading"
-            acs:al_thumbIconSize="10dp"
-            acs:al_thumbIconSizeOn="36dp"
-            acs:al_thumbPaddingLeft="20dp"
-            acs:al_thumbPaddingRight="0dp"
-            acs:al_thumbTextColorOff="#00BE3E"
-            acs:al_thumbTextColorOn="#FFF"
-            acs:al_thumbTextOff="Start"
-            acs:al_thumbTextOn=""
-            acs:al_thumbTextSize="12sp" />
-
-    </LinearLayout>
-
-</acs.utils.AcsBox>
+</acs.Box>

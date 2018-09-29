@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="acs">AcsUtils</string>
+
+    <string name="acs.box.empty_title">No hay contenido</string>
+    <string name="acs.box.empty_subtitle">Lo sentimos, no tenemos contenido para mostrar.</string>
+    <string name="acs.box.empty_button" />
+
+    <string name="acs.box.error_title">Hubo un error</string>
+    <string name="acs.box.error_subtitle">Por favor, inténtalo nuevamente.</string>
+    <string name="acs.box.error_button">Reintentar</string>
+
+</resources>

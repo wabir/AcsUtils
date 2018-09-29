@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/acs.box.cont"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="70dp"
+        android:layout_height="70dp" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:contentDescription="@string/acs"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_cloud" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mrg_lg"
+        android:gravity="center_horizontal"
+        android:maxWidth="250dp"
+        android:text="Título del contenido"
+        android:textColor="@color/acs.box.title"
+        android:textSize="@dimen/txt_sd"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mrg_xs"
+        android:gravity="center_horizontal"
+        android:maxWidth="250dp"
+        android:text="Desripcion principal del error o sucedo actual"
+        android:textColor="@color/acs.box.subtitle"
+        android:textSize="@dimen/txt_xs" />
+
+    <acs.Text
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mrg_lg"
+        android:gravity="center"
+        android:maxWidth="250dp"
+        android:minHeight="40dp"
+        android:paddingLeft="@dimen/mrg_md"
+        android:paddingRight="@dimen/mrg_md"
+        android:text="Acción de boton"
+        android:textAllCaps="true"
+        android:textColor="@color/acs.box.button_text"
+        android:textSize="@dimen/txt_sm"
+        android:textStyle="bold"
+        app:_bgColor="@color/acs.box.button_bg"
+        app:_borderColor="@color/acs.box.button_border"
+        app:_borderWidth="2dp"
+        app:_radius="3dp" />
+
+</LinearLayout>

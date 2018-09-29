@@ -7,7 +7,6 @@ import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -46,7 +45,7 @@ public class AcsBox extends RelativeLayout {
 
     private String mButtonText = "Retrying";
 
-    private int mSpacing = Acs.px(getContext(), 10);
+    private int mSpacing;
 
     private String mFont = "";
 
@@ -92,7 +91,7 @@ public class AcsBox extends RelativeLayout {
 
         mButtonText = defString(a.getString(R.styleable.AcsBox_buttonText), mButtonText);
 
-        mSpacing = (int) a.getDimension(R.styleable.AcsBox_spacing, mSpacing);
+        mSpacing = (int) a.getDimension(R.styleable.AcsBox_spacing, Acs.px(ctx, 10));
 
         mFont = a.getString(R.styleable.AcsBox_acs_font);
 
@@ -215,8 +214,7 @@ public class AcsBox extends RelativeLayout {
      * Click Button
      */
     private View.OnClickListener clickButton = new OnClickListener() {
-        @Override
-        public void onClick(View view) {
+        @Override public void onClick(View view) {
             if (callback != null) {
                 callback.onRetryng();
             }

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="colorAccent">#FF0000</color>
+
     <color name="transparent">#00000000</color>
 
     <color name="_success">#34bfa3</color>
@@ -34,5 +36,15 @@
     <color name="black_20">#33000000</color>
     <color name="black_10">#1A000000</color>
     <color name="black_05">#0D000000</color>
+
+    <!--TODO: Widgets -->
+
+    <!-- acs.Box -->
+    <color name="acs.box.cont">#FFFFFF</color>
+    <color name="acs.box.title">#000000</color>
+    <color name="acs.box.subtitle">#666666</color>
+    <color name="acs.box.button_bg">@color/transparent</color>
+    <color name="acs.box.button_border">@color/colorAccent</color>
+    <color name="acs.box.button_text">@color/colorAccent</color>
 
 </resources>

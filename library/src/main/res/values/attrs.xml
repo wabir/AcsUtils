@@ -181,4 +181,36 @@
         <attr name="_borderWidthFocus" />
     </declare-styleable>
 
+
+    <declare-styleable name="Box">
+        <attr name="bgColor" />
+
+        <attr name="loadingSize" />
+        <attr name="loadingColor" />
+
+        <attr name="iconSize" />
+        <attr name="iconColor" />
+
+        <attr name="titleSize" />
+        <attr name="titleColor" />
+        <attr name="subtitleSize" />
+        <attr name="subtitleColor" />
+
+        <attr name="emptyIcon" />
+        <attr name="emptyTitle" />
+        <attr name="emptySubtitle" />
+        <attr name="emptyButton" format="string" />
+
+        <attr name="errorIcon" />
+        <attr name="errorTitle" />
+        <attr name="errorSubtitle" />
+        <attr name="errorButton" format="string" />
+
+        <attr name="buttonText" />
+
+        <attr name="spacing" />
+
+        <attr name="_font" />
+    </declare-styleable>
+
 </resources>

@@ -5,8 +5,10 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.support.annotation.ColorInt;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +20,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Acs {
+
+    public static String DEFAULT_FONT = null;
 
     /**
      * Convertir String a Int, retorna 0 en caso de error
@@ -61,6 +65,10 @@ public class Acs {
 
     // Asignar tipo de fuente a un TextView
     public static void setFont(Context ctx, TextView tv, String font, int style) {
+        if (font == null && DEFAULT_FONT != null) {
+            font = DEFAULT_FONT;
+        }
+
         Typeface type = null;
         if (font != null && !font.isEmpty()) {
             try {
@@ -76,6 +84,10 @@ public class Acs {
         setFont(ctx, tv, font, Typeface.NORMAL);
     }
 
+    // fuente por defecto definida
+    public static void setFont(Context ctx, TextView tv) {
+        setFont(ctx, tv, DEFAULT_FONT);
+    }
 
     /**
      * Copiar al portapapeles
@@ -176,4 +188,12 @@ public class Acs {
         openPlayStore(ctx, ctx.getPackageName());
     }
 
+    @ColorInt
+    public static int alphaColor(@ColorInt int color, float factor) {
+        int alpha = Math.round(Color.alpha(color) * factor);
+        int red = Color.red(color);
+        int green = Color.green(color);
+        int blue = Color.blue(color);
+        return Color.argb(alpha, red, green, blue);
+    }
 }
